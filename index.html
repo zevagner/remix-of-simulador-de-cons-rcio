@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Security Hardening Wave 1 — Content Security Policy (defense-in-depth)
+         Política deliberadamente compatível com Supabase, Lovable AI Gateway,
+         Browserless, fonts/images CDN, analytics e charts/canvas.
+         - 'unsafe-inline' em style-src: necessário para Tailwind/Radix (CSS-in-JS runtime).
+         - 'unsafe-inline' em script-src: necessário p/ Vite runtime + lovable-tagger em dev.
+           Mantido em prod porque alguns vendors (Sentry/PWA) injetam tags.
+         - frame-ancestors 'self' lovable.dev: bloqueia clickjacking, permite preview Lovable.
+         - object-src 'none': bloqueia plugins legados.
+         Ver .lovable/audit/security-hardening-wave-1.md para racional completo. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.lovable.dev https://*.lovable.app https://cdn.gpteng.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.lovable.dev https://*.lovable.app https://ai.gateway.lovable.dev https://chrome.browserless.io https://*.sentry.io https://o*.ingest.sentry.io https://storage.googleapis.com; worker-src 'self' blob:; frame-src 'self' https://*.lovable.dev https://*.lovable.app; frame-ancestors 'self' https://*.lovable.dev https://*.lovable.app; object-src 'none'; base-uri 'self'; form-action 'self';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <title>Simulador de Consórcio Inteligente</title>
+    <meta name="description" content="Simulador avançado de consórcio que compara estratégias, analisa lances e estima probabilidades de contemplação para apoiar decisões financeiras.">
+    <meta name="author" content="Simulador de Consórcio" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Consórcio" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/qVoqygiOrIQonnE8IIlBDYWcyBq2/social-images/social-1774930445671-ChatGPT_Image_31_de_mar._de_2026,_01_12_32.webp">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/qVoqygiOrIQonnE8IIlBDYWcyBq2/social-images/social-1774930445671-ChatGPT_Image_31_de_mar._de_2026,_01_12_32.webp">
+    
+    
+    
+    
+    <meta property="og:title" content="Simulador de Consórcio Inteligente">
+  <meta name="twitter:title" content="Simulador de Consórcio Inteligente">
+  <meta property="og:description" content="Simulador avançado de consórcio que compara estratégias, analisa lances e estima probabilidades de contemplação para apoiar decisões financeiras.">
+  <meta name="twitter:description" content="Simulador avançado de consórcio que compara estratégias, analisa lances e estima probabilidades de contemplação para apoiar decisões financeiras.">
+
+  <!-- Landing v3 "Kinetic Premium" — Instrument Serif + Work Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

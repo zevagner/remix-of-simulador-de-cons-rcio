@@ -1,0 +1,5670 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ========================================
+       PALETA INSTITUCIONAL CAIXA TECH
+       ======================================== */
+    /* Cores canônicas de marca (hex literais — fonte única) */
+    --caixa-blue: #005CA9;
+    --caixa-orange: #F47920;
+    --whatsapp-green: #25D366;
+    --whatsapp-bubble: #ECE5DD;
+    --whatsapp-dark: #0B141A;
+
+    --background: 207 33% 97%;
+    --foreground: 0 0% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    /* Azul Caixa #0066B3 = HSL(204, 100%, 35%) */
+    --primary: 188 100% 11%; /* #003641 navy */
+    --primary-foreground: 0 0% 100%;
+
+    /* Cinza claro para fundos suaves */
+    --secondary: 207 20% 96%;
+    --secondary-foreground: 0 0% 20%;
+
+    --muted: 207 15% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 207 15% 92%;
+    --accent-foreground: 0 0% 20%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 40%;
+    --success-foreground: 0 0% 100%;
+
+    /* Laranja Caixa #F7941E = HSL(33, 93%, 54%) */
+    --warning: 33 93% 54%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Cores de borda e input */
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 204 100% 35%;
+
+    --radius: 0.75rem;
+
+    /* Cores de gráficos */
+    --chart-1: 204 100% 35%;
+    --chart-2: 33 93% 54%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 142 71% 40%;
+    --chart-5: 0 0% 35%;
+
+    /* Sidebar — Azul escuro institucional (fundo do logo) */
+    --sidebar-background: 188 100% 11%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 188 100% 11%;
+    --sidebar-accent: 188 100% 16%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 188 100% 15%;
+    --sidebar-ring: 188 100% 30%;
+
+    /* Chart container */
+    --chart-bg: 0 0% 100%;
+    --table-header-bg: 207 20% 96%;
+
+    /* Zonas de lance */
+    --zone-conservadora: 142 71% 45%;
+    --zone-equilibrada: 33 93% 54%;
+    --zone-agressiva: 0 72% 51%;
+
+    /* Landing page tokens */
+    --landing-bg: 0 0% 100%;
+    --landing-fg: 222 35% 16%;
+    --landing-heading: 222 47% 11%;
+    --landing-muted: 220 10% 50%;
+    --landing-light: 210 20% 97%;
+    --landing-dark: 222 35% 12%;
+    --landing-dark-mid: 222 35% 16%;
+    --landing-dark-deep: 222 40% 10%;
+    --landing-gold: 224 76% 48%;
+    --landing-gold-hover: 224 76% 40%;
+    --landing-border: 210 15% 90%;
+    --landing-nav: 0 0% 100%;
+
+    /* ========================================
+       DESIGN SYSTEM v2 — camada --ds-*
+       Onda 1: tokens unificados (não substitui legacy ainda).
+       Documentação: docs/design/tokens-v2.md
+       ======================================== */
+    --ds-surface: 0 0% 100%;
+    --ds-surface-soft: 210 25% 98%;
+    --ds-surface-elevated: 0 0% 100%;
+    --ds-surface-inverse: 222 38% 11%;
+    --ds-border: 220 14% 91%;
+    --ds-border-strong: 220 14% 84%;
+    --ds-text-display: 222 38% 11%;
+    --ds-text-title: 222 30% 18%;
+    --ds-text-body: 222 12% 32%;
+    --ds-text-muted: 220 10% 50%;
+    --ds-text-caption: 220 8% 60%;
+    --ds-accent: 42 87% 55%;
+    --ds-accent-deep: 42 87% 45%;
+    --ds-accent-soft: 42 87% 96%;
+    --ds-shadow-sm: 0 1px 2px hsl(222 30% 12% / 0.04);
+    --ds-shadow-md: 0 8px 24px -12px hsl(222 30% 12% / 0.10), 0 2px 6px -2px hsl(222 30% 12% / 0.05);
+    --ds-shadow-lg: 0 24px 48px -24px hsl(222 30% 12% / 0.18), 0 6px 12px -4px hsl(222 30% 12% / 0.06);
+    --ds-shadow-glow: 0 0 0 1px hsl(var(--ds-accent) / 0.18), 0 20px 60px -20px hsl(var(--ds-accent) / 0.35);
+    --ds-radius-sm: 8px;
+    --ds-radius-md: 12px;
+    --ds-radius-lg: 20px;
+    --ds-radius-xl: 28px;
+    --ds-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ds-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ds-dur-fast: 180ms;
+    --ds-dur-base: 320ms;
+    --ds-dur-slow: 560ms;
+  }
+
+  .dark {
+    --background: 200 20% 8%;
+    --foreground: 0 0% 92%;
+    --card: 200 18% 12%;
+    --card-foreground: 0 0% 92%;
+    --popover: 200 18% 12%;
+    --popover-foreground: 0 0% 92%;
+    --primary: 188 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 15% 18%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 200 15% 16%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 200 15% 20%;
+    --accent-foreground: 0 0% 90%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 60% 35%;
+    --success-foreground: 0 0% 100%;
+    --warning: 33 85% 50%;
+    --warning-foreground: 0 0% 100%;
+    --border: 200 15% 22%;
+    --input: 200 15% 20%;
+    --ring: 188 100% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  /* Wave 29 cleanup: `.module-card` removed — zero consumers in src/.
+     Use shadcn <Card data-card-variant="..."> (Wave 26/27 canon) instead. */
+
+  .input-group {
+    @apply space-y-2;
+  }
+
+  .input-label {
+    @apply text-sm font-medium text-foreground;
+  }
+
+  .result-value {
+    @apply text-2xl font-bold text-primary;
+  }
+
+  .result-label {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .badge-success {
+    @apply bg-success/10 text-success border-success/20;
+  }
+
+  .badge-warning {
+    @apply bg-warning/10 border-warning/20 text-foreground;
+  }
+
+  .badge-destructive {
+    @apply bg-destructive/10 text-destructive border-destructive/20;
+  }
+
+  .stat-card {
+    @apply bg-card rounded-xl border border-border p-3 sm:p-4 text-center overflow-hidden transition-all duration-200 hover:shadow-lg active:scale-[0.98];
+  }
+
+  .interactive-card {
+    @apply transition-all duration-200 hover:shadow-lg active:scale-[0.98];
+  }
+
+  .stat-card p,
+  .stat-card span {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply bg-white/15 text-white hover:bg-white/20 hover:text-white;
+  }
+
+  .result-label {
+    @apply text-xs text-muted-foreground font-medium;
+  }
+
+  /* ========================================
+     MODULE HEADER — TECH BACKGROUND
+     ======================================== */
+  .module-header {
+    @apply relative w-full overflow-hidden rounded-lg;
+    background:
+      radial-gradient(circle 4px at 18% 40%, rgba(247, 148, 30, 0.30), transparent),
+      radial-gradient(circle 3px at 72% 30%, rgba(247, 148, 30, 0.25), transparent),
+      radial-gradient(circle 3px at 50% 60%, rgba(247, 148, 30, 0.20), transparent),
+      radial-gradient(circle 2px at 85% 50%, rgba(247, 148, 30, 0.25), transparent),
+      radial-gradient(circle 1.5px at 25% 20%, rgba(247, 148, 30, 0.40), transparent),
+      radial-gradient(circle 1.5px at 60% 70%, rgba(247, 148, 30, 0.35), transparent),
+      radial-gradient(circle 1.5px at 40% 45%, rgba(255, 255, 255, 0.18), transparent),
+      radial-gradient(circle 1.5px at 75% 25%, rgba(255, 255, 255, 0.15), transparent),
+      repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 40px,
+        rgba(255, 255, 255, 0.025) 40px,
+        rgba(255, 255, 255, 0.025) 41px
+      ),
+      linear-gradient(135deg, #003641 0%, #003641 100%);
+    height: 80px;
+  }
+
+  @media (max-width: 639px) {
+    .module-header {
+      /* Header compacto em mobile: altura fixa de 56px (h-14) para liberar área útil */
+      height: 56px;
+      min-height: 56px;
+    }
+
+    .module-header-title {
+      font-size: 1rem; /* text-base */
+      line-height: 1.2;
+    }
+
+    /* Subtítulo oculto em mobile para economizar espaço vertical */
+    .module-header-subtitle {
+      display: none;
+    }
+
+    .module-header-content {
+      @apply px-3 py-0 gap-2 justify-start;
+    }
+  }
+
+  .module-header-content {
+    @apply relative z-10 h-full w-full mx-auto px-4 flex items-center justify-center gap-3 min-w-0;
+  }
+
+  .module-header-divider {
+    width: 1.5px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+  }
+
+  .module-header-title {
+    @apply text-xl font-semibold text-white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .module-header-subtitle {
+    @apply text-xs text-white/70 leading-tight;
+  }
+
+  /* ========================================
+     SIDEBAR — TECH BACKGROUND
+     ======================================== */
+  .sidebar-tech-bg {
+    background:
+      /* Orange glow points */
+      radial-gradient(circle 6px at 18% 15%, rgba(247, 148, 30, 0.35), transparent),
+      radial-gradient(circle 5px at 72% 8%, rgba(247, 148, 30, 0.30), transparent),
+      radial-gradient(circle 7px at 45% 45%, rgba(247, 148, 30, 0.25), transparent),
+      radial-gradient(circle 4px at 85% 35%, rgba(247, 148, 30, 0.30), transparent),
+      radial-gradient(circle 6px at 10% 60%, rgba(247, 148, 30, 0.20), transparent),
+      radial-gradient(circle 5px at 60% 25%, rgba(247, 148, 30, 0.28), transparent),
+      radial-gradient(circle 4px at 30% 80%, rgba(247, 148, 30, 0.22), transparent),
+      radial-gradient(circle 5px at 90% 70%, rgba(247, 148, 30, 0.25), transparent),
+      /* Smaller pinpoint stars */
+      radial-gradient(circle 2px at 25% 10%, rgba(247, 148, 30, 0.50), transparent),
+      radial-gradient(circle 2px at 55% 55%, rgba(247, 148, 30, 0.45), transparent),
+      radial-gradient(circle 2px at 80% 30%, rgba(247, 148, 30, 0.40), transparent),
+      radial-gradient(circle 2px at 40% 20%, rgba(247, 148, 30, 0.35), transparent),
+      radial-gradient(circle 1.5px at 65% 40%, rgba(247, 148, 30, 0.50), transparent),
+      radial-gradient(circle 1.5px at 15% 75%, rgba(247, 148, 30, 0.40), transparent),
+      radial-gradient(circle 2px at 50% 90%, rgba(247, 148, 30, 0.45), transparent),
+      /* White network dots */
+      radial-gradient(circle 1.5px at 20% 20%, rgba(255, 255, 255, 0.25), transparent),
+      radial-gradient(circle 1.5px at 50% 10%, rgba(255, 255, 255, 0.20), transparent),
+      radial-gradient(circle 1.5px at 80% 40%, rgba(255, 255, 255, 0.22), transparent),
+      radial-gradient(circle 1.5px at 35% 55%, rgba(255, 255, 255, 0.18), transparent),
+      radial-gradient(circle 1.5px at 65% 30%, rgba(255, 255, 255, 0.20), transparent),
+      radial-gradient(circle 1.5px at 10% 85%, rgba(255, 255, 255, 0.15), transparent),
+      radial-gradient(circle 1.5px at 90% 65%, rgba(255, 255, 255, 0.22), transparent),
+      repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 40px,
+        rgba(255, 255, 255, 0.03) 40px,
+        rgba(255, 255, 255, 0.03) 41px
+      ),
+      repeating-linear-gradient(
+        60deg,
+        transparent,
+        transparent 60px,
+        rgba(255, 255, 255, 0.025) 60px,
+        rgba(255, 255, 255, 0.025) 61px
+      ),
+      linear-gradient(180deg, #003641 0%, #003641 100%);
+  }
+
+  /* Result card variants */
+  .result-positive {
+    @apply font-bold text-success;
+  }
+
+  .result-negative {
+    @apply font-bold text-destructive;
+  }
+
+  .result-neutral {
+    @apply font-bold text-foreground;
+  }
+
+  .result-primary {
+    @apply font-bold text-primary;
+  }
+
+  /* Destaque de valores numéricos */
+  .highlight-value {
+    @apply font-bold text-primary;
+  }
+
+  .highlight-secondary {
+    @apply font-bold;
+    color: hsl(var(--warning));
+  }
+}
+
+/* ===== MOBILE CARD OVERFLOW FIX ===== */
+@media (max-width: 639px) {
+  .rounded-lg .text-2xl,
+  .rounded-xl .text-2xl,
+  [class*="Card"] .text-2xl {
+    font-size: 1.15rem !important;
+    line-height: 1.3 !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .rounded-lg .text-3xl,
+  .rounded-xl .text-3xl,
+  [class*="Card"] .text-3xl {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .rounded-lg.p-4,
+  .rounded-xl.p-4 {
+    padding: 0.625rem !important;
+  }
+
+  [class*="CardTitle"] {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.3 !important;
+  }
+}
+
+.print-hide {
+  @media print {
+    display: none !important;
+  }
+}
+
+.print-only {
+  display: none !important;
+  @media print {
+    display: block !important;
+  }
+}
+
+.print-show {
+  @media print {
+    display: block !important;
+  }
+}
+
+/* Cabeçalho institucional - ajuste para impressão */
+@media print {
+  .module-header {
+    background: var(--caixa-blue);
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: white !important;
+    height: 56px !important;
+    margin: -15mm -12mm 15px -12mm !important;
+    width: calc(100% + 24mm) !important;
+    padding-left: 12mm !important;
+    padding-right: 12mm !important;
+  }
+
+  .module-header-content {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    max-width: none !important;
+  }
+
+  .module-header-logo img {
+    height: 40px !important;
+  }
+
+  .module-header-title {
+    font-size: 14pt !important;
+    font-weight: 600 !important;
+  }
+
+  .module-header-divider {
+    background: rgba(255, 255, 255, 0.4) !important;
+    height: 24px !important;
+  }
+}
+
+/* Variáveis CSS para dados dinâmicos de impressão */
+:root {
+  --print-module-name: "";
+  --print-consortium-type: "";
+  --print-date: "";
+  --print-manager: "";
+  --print-agency: "";
+}
+
+/* ======== PRINT MEDIA QUERIES ======== */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 15mm 12mm 20mm 12mm;
+  }
+
+  body {
+    background: white !important;
+    color: #333333 !important;
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+    font-family: 'Inter', Arial, sans-serif !important;
+  }
+
+  aside,
+  nav,
+  .sidebar,
+  [data-sidebar],
+  header:not(.print-header),
+  footer:not(.print-footer) {
+    display: none !important;
+  }
+
+  button:not(.print-keep),
+  input,
+  select,
+  textarea,
+  .input-group,
+  [role="switch"],
+  [role="combobox"],
+  [role="slider"],
+  .toggle-group,
+  [class*="ToggleGroup"],
+  [class*="Switch"],
+  [class*="Select"],
+  .print-hide {
+    display: none !important;
+  }
+
+  .print-value {
+    display: block !important;
+    font-weight: 600;
+    color: #333333;
+  }
+
+  main,
+  .main-content,
+  [class*="Module"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .card,
+  [class*="Card"] {
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    margin-bottom: 10pt !important;
+    background: white !important;
+  }
+
+  [class*="CardHeader"] {
+    padding: 8pt 12pt !important;
+    border-bottom: 1px solid #eee !important;
+  }
+
+  [class*="CardTitle"] {
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    color: var(--caixa-blue);
+  }
+
+  [class*="CardContent"] {
+    padding: 12pt !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 9pt !important;
+  }
+
+  th, td {
+    border: 1px solid #ddd !important;
+    padding: 6pt 8pt !important;
+    text-align: left !important;
+  }
+
+  th {
+    background: #f5f5f5 !important;
+    font-weight: 700 !important;
+    color: #333333 !important;
+  }
+
+  tr:nth-child(even) {
+    background: #fafafa !important;
+  }
+
+  .bg-primary\/5,
+  [class*="bg-primary"] {
+    background: #e6f0f8 !important;
+    border: 2px solid var(--caixa-blue);
+  }
+
+  .bg-primary\/5 [class*="CardTitle"],
+  [class*="bg-primary"] [class*="CardTitle"] {
+    font-size: 13pt !important;
+  }
+
+  .bg-primary\/5 .text-xl,
+  [class*="bg-primary"] .text-xl {
+    font-size: 14pt !important;
+    font-weight: 700 !important;
+  }
+
+  .recharts-wrapper {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .recharts-tooltip-wrapper,
+  .recharts-legend-item {
+    font-size: 8pt !important;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .badge,
+  [class*="Badge"] {
+    border: 1px solid #999 !important;
+    font-size: 8pt !important;
+    padding: 2pt 6pt !important;
+  }
+
+  [class*="Separator"],
+  hr {
+    border-color: #ccc !important;
+    margin: 8pt 0 !important;
+  }
+
+  [role="tablist"],
+  [class*="TabsList"] {
+    display: none !important;
+  }
+
+  [role="tabpanel"][data-state="inactive"],
+  [class*="TabsContent"][data-state="inactive"] {
+    display: none !important;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .page-break {
+    page-break-before: always !important;
+    break-before: always !important;
+  }
+
+  .no-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .grid {
+    display: grid !important;
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr) !important;
+  }
+
+  .text-primary {
+    color: var(--caixa-blue);
+  }
+
+  .text-muted-foreground {
+    color: #666 !important;
+  }
+
+  .text-foreground {
+    color: #333333 !important;
+  }
+
+  a {
+    color: #333333 !important;
+    text-decoration: none !important;
+  }
+
+  [data-state="closed"] > [class*="CollapsibleContent"] {
+    display: block !important;
+    height: auto !important;
+  }
+
+  /* Gráficos para impressão - fundo branco, sem efeitos */
+  .recharts-surface {
+    background: white !important;
+  }
+
+  /* Barras azuis para consórcio, laranjas para comparativos */
+  .recharts-bar-rectangle {
+    filter: none !important;
+  }
+
+  /* ======== TABLE PRINT RULES ======== */
+  thead {
+    display: table-header-group !important;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* ======== PRINT TABLE RULES — remove ALL scroll/overflow constraints ======== */
+  table,
+  [class*="overflow"],
+  .overflow-auto,
+  .overflow-x-auto,
+  .overflow-y-auto,
+  .overflow-hidden,
+  [data-radix-scroll-area-viewport],
+  [class*="ScrollArea"],
+  [class*="scroll-area"] {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  /* Ensure tables fit within A4 width */
+  table {
+    table-layout: auto !important;
+    word-break: break-word !important;
+    width: 100% !important;
+  }
+
+  /* Reduce font size for dense tables to fit A4 */
+  table th,
+  table td {
+    font-size: 8pt !important;
+    padding: 4pt 5pt !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+
+  /* Remove min-width constraints that force overflow */
+  table th,
+  table td {
+    min-width: unset !important;
+  }
+
+  /* Scrollbar hide */
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .print-section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .recharts-responsive-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* ======== PRINTABLE PARAMS BLOCK ======== */
+  .print-params-block {
+    display: block !important;
+    margin-bottom: 12pt;
+    padding: 10pt;
+    background: #f8f9fa !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 4pt;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-params-title {
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    color: var(--caixa-blue);
+    margin: 0 0 8pt 0 !important;
+    padding-bottom: 4pt;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .print-params-grid {
+    display: grid !important;
+    gap: 6pt 12pt;
+  }
+
+  .print-params-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  .print-params-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+  .print-params-cols-4 { grid-template-columns: repeat(4, 1fr) !important; }
+
+  .print-param-item {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .print-param-label {
+    font-size: 7pt !important;
+    color: #666 !important;
+    margin-bottom: 1pt;
+  }
+
+  .print-param-value {
+    font-size: 10pt !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+  }
+}
+
+/* ======== CABEÇALHO DE IMPRESSÃO ======== */
+.print-header {
+  display: none;
+}
+
+@media print {
+  .print-header {
+    display: block !important;
+    margin-bottom: 15pt;
+    padding-bottom: 10pt;
+    border-bottom: 2px solid var(--caixa-blue);
+  }
+
+  .print-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10pt;
+  }
+
+  .print-header-title h1 {
+    font-size: 16pt !important;
+    font-weight: 700 !important;
+    color: var(--caixa-blue);
+    margin: 0 !important;
+  }
+
+  .print-consortium-type {
+    display: inline-block;
+    background: #e6f0f8;
+    color: var(--caixa-blue);
+    padding: 2pt 8pt;
+    border-radius: 4pt;
+    font-size: 9pt;
+    font-weight: 600;
+    margin-top: 4pt;
+  }
+
+  .print-header-meta {
+    text-align: right;
+    font-size: 9pt;
+    color: #666;
+  }
+
+  .print-date {
+    display: block;
+  }
+
+  .print-executive-summary {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6pt;
+    padding: 10pt;
+    margin-top: 10pt;
+  }
+
+  .print-executive-summary h2 {
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    color: #333333 !important;
+    margin: 0 0 8pt 0 !important;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4pt;
+  }
+
+  .print-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8pt;
+  }
+
+  .print-summary-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .print-summary-label {
+    font-size: 8pt;
+    color: #666;
+    margin-bottom: 2pt;
+  }
+
+  .print-summary-value {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #333333;
+  }
+
+  .print-conclusion {
+    margin-top: 8pt;
+    padding-top: 8pt;
+    border-top: 1px solid #ddd;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--caixa-blue);
+    font-style: italic;
+  }
+}
+
+/* ======== RODAPÉ DE IMPRESSÃO ======== */
+.print-footer {
+  display: none;
+}
+
+@media print {
+  .print-footer {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8pt 12mm;
+    background: white;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    font-size: 8pt;
+    color: #666;
+    font-style: italic;
+  }
+
+  body::after {
+    content: "";
+    display: block;
+    height: 30pt;
+  }
+}
+
+/* ======== ESTILOS ESPECÍFICOS RESUMO FINAL - IMPRESSÃO A4 ======== */
+@media print {
+  .summary-module-print {
+    font-size: 9pt !important;
+  }
+
+  .summary-module-print .no-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Cabeçalho repetido em todas as páginas */
+  .summary-module-print .module-header {
+    position: running(header);
+  }
+
+  @page {
+    @top-center {
+      content: element(header);
+    }
+  }
+
+  /* Ajuste de grid para impressão */
+  .summary-module-print .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8pt !important;
+  }
+
+  .summary-module-print .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8pt !important;
+  }
+
+  /* Cards menores para impressão */
+  .summary-module-print [class*="Card"] {
+    padding: 8pt !important;
+    margin-bottom: 8pt !important;
+  }
+
+  .summary-module-print [class*="CardHeader"] {
+    padding: 6pt 10pt !important;
+  }
+
+  .summary-module-print [class*="CardContent"] {
+    padding: 8pt 10pt !important;
+  }
+
+  /* Textos explicativos em tamanho menor */
+  .summary-module-print .text-sm {
+    font-size: 8pt !important;
+  }
+
+  .summary-module-print .text-xs {
+    font-size: 7pt !important;
+  }
+
+  /* Títulos de seção */
+  .summary-module-print .text-lg {
+    font-size: 11pt !important;
+  }
+
+  .summary-module-print .text-2xl {
+    font-size: 13pt !important;
+  }
+
+  /* Gráficos com altura reduzida */
+  .summary-module-print .recharts-wrapper {
+    max-height: 180pt !important;
+  }
+
+  /* Tabela consolidada */
+  .summary-module-print table {
+    font-size: 8pt !important;
+  }
+
+  .summary-module-print table th,
+  .summary-module-print table td {
+    padding: 4pt 6pt !important;
+  }
+
+  /* Bloco de observações */
+  .summary-module-print ul li {
+    font-size: 8pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Forçar quebra de página antes da tabela se necessário */
+  .summary-module-print .page-break-before {
+    page-break-before: always !important;
+    break-before: always !important;
+  }
+
+  /* Print-only rodapé específico */
+  .summary-module-print .print-only {
+    display: block !important;
+    margin-top: 12pt;
+    padding-top: 8pt;
+    border-top: 1px solid #ccc;
+  }
+
+  /* Separadores mais finos */
+  .summary-module-print [class*="Separator"] {
+    margin: 6pt 0 !important;
+  }
+
+  /* Badge menor */
+  .summary-module-print [class*="Badge"] {
+    font-size: 7pt !important;
+    padding: 2pt 4pt !important;
+  }
+
+  /* Alert/Card de introdução */
+  .summary-module-print .border-primary\/20 {
+    border-width: 1px !important;
+    padding: 8pt !important;
+  }
+
+  /* Card de texto orientado */
+  .summary-module-print .border-l-4 {
+    border-left-width: 3pt !important;
+    padding: 6pt 10pt !important;
+  }
+}
+
+/* Landing page card with 3D hover */
+.landing-card {
+  @apply bg-white rounded-2xl p-6 border border-landing-border shadow-sm;
+  transition: transform 0.4s cubic-bezier(0.03, 0.98, 0.52, 0.99), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.landing-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px -18px rgba(15, 23, 42, 0.18),
+    0 2px 6px -2px rgba(15, 23, 42, 0.06);
+  border-color: hsl(var(--landing-gold) / 0.25);
+}
+
+/* Parallax floating animation for hero image */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-12px) rotate(0.5deg); }
+  75% { transform: translateY(8px) rotate(-0.5deg); }
+}
+
+.hero-float {
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+/* Glow pulse for gold accents */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--landing-gold) / 0.2); }
+  50% { box-shadow: 0 0 40px hsl(var(--landing-gold) / 0.4); }
+}
+
+.glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Shimmer effect for badges */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--landing-gold) / 0.2) 0%,
+    hsl(var(--landing-gold) / 0.4) 50%,
+    hsl(var(--landing-gold) / 0.2) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes loading {
+  0% { width: 0%; margin-left: 0; }
+  50% { width: 60%; margin-left: 20%; }
+  100% { width: 0%; margin-left: 100%; }
+}
+
+/* Hide scrollbar visually but keep scroll functional */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile scroll hint — fade direito animado + atenuação após interação */
+.scroll-hint {
+  position: relative;
+}
+.scroll-hint::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  pointer-events: none;
+  background: linear-gradient(to right, transparent, hsl(var(--card)));
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+  opacity: 1;
+  transition: opacity 0.4s ease, width 0.3s ease;
+  animation: scroll-hint-pulse 3.2s ease-in-out infinite;
+}
+.scroll-hint.is-scrolled::after {
+  opacity: 0.25;
+  width: 16px;
+  animation: none;
+}
+@media (min-width: 768px) {
+  .scroll-hint::after { display: none; }
+}
+@keyframes scroll-hint-pulse {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 0.9; }
+}
+
+/* Texto "← arraste →" — leve flutuação para chamar atenção */
+.scroll-hint-label {
+  animation: scroll-hint-slide 2.6s ease-in-out infinite;
+}
+@keyframes scroll-hint-slide {
+  0%, 100% { transform: translateX(0); opacity: 0.6; }
+  50% { transform: translateX(2px); opacity: 0.85; }
+}
+.scroll-hint-label.is-scrolled {
+  animation: none;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+}
+
+/* Acessibilidade — desliga animações de hint para quem prefere movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint::after,
+  .scroll-hint-label {
+    animation: none !important;
+  }
+}
+
+/* Micro-feedback ao tocar pontos do gráfico — leve scale-in */
+.recharts-active-dot {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: chart-dot-pop 180ms ease-out;
+}
+@keyframes chart-dot-pop {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .recharts-active-dot { animation: none; }
+}
+
+/* ========================================
+   POLIMENTO MOBILE — feedback de toque & texto
+   ======================================== */
+
+/* Feedback de toque em cards/elementos clicáveis (não-button) */
+.tap-feedback {
+  transition: transform 150ms ease-out, opacity 150ms ease-out, background-color 150ms ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+.tap-feedback:active {
+  transform: scale(0.985);
+  opacity: 0.96;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tap-feedback { transition: none; }
+  .tap-feedback:active { transform: none; }
+}
+
+/* Remove highlight azul padrão do iOS em elementos interativos globalmente */
+button, a, [role="button"], [role="link"], [role="tab"], [role="menuitem"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Texto longo — quebra controlada para evitar overflow horizontal em mobile */
+.text-balanced {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Respiro de leitura para blocos longos */
+.text-soft-wrap {
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+/* Garantia de área mínima de toque para ícones interativos soltos */
+@media (max-width: 767px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* =====================================================================
+ * EDITORIAL KIT — Safe Editorial Core Modules Evolution Wave
+ * ---------------------------------------------------------------------
+ * Classes utilitárias puramente visuais para evoluir gradualmente os
+ * módulos internos com a mesma linguagem editorial da landing premium.
+ * Aditivo — não substitui nenhuma classe existente. Adoção incremental,
+ * sem risco de runtime, bundling ou chunk graph.
+ * ===================================================================== */
+
+/* Eyebrow tracked-caps acima de títulos (substitui badges/chips ruidosos) */
+.module-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.module-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background: hsl(var(--border));
+}
+
+/* Título display editorial — para módulos que querem peso institucional */
+.module-title-display {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: hsl(var(--foreground));
+}
+.module-title-display em {
+  font-style: italic;
+  font-weight: 400;
+  color: hsl(var(--primary));
+}
+
+/* Métrica financeira — tabular-nums + hierarquia clara */
+.module-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.module-metric-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.module-metric-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.01em;
+}
+.module-metric-hint {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Superfície editorial — alternativa "leve" ao Card padrão */
+.editorial-surface {
+  background: hsl(var(--background));
+  border-top: 1px solid hsl(var(--border));
+  border-bottom: 1px solid hsl(var(--border));
+  padding: 1.5rem 0;
+}
+.editorial-surface + .editorial-surface {
+  border-top: 0;
+}
+
+/* Hairline grid — substitui caixas pesadas por divisões discretas */
+.editorial-grid {
+  display: grid;
+  gap: 0;
+}
+.editorial-grid > * + * {
+  border-top: 1px solid hsl(var(--border));
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .editorial-grid-cols-2 { grid-template-columns: 1fr 1fr; gap: 0; }
+  .editorial-grid-cols-2 > * + * {
+    border-top: 0;
+    border-left: 1px solid hsl(var(--border));
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 1.5rem;
+    margin-left: 1.5rem;
+  }
+}
+
+/* Flag editorial — substitui badges genéricos por marcador discreto */
+.editorial-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.125rem 0;
+  color: hsl(var(--foreground));
+  border-bottom: 1px solid hsl(var(--primary));
+}
+.editorial-flag[data-tone='muted']  { color: hsl(var(--muted-foreground)); border-color: hsl(var(--border)); }
+.editorial-flag[data-tone='accent'] { color: hsl(var(--primary));         border-color: hsl(var(--primary)); }
+
+/* Numeração editorial 01 / 02 / ... — para listas consultivas */
+.editorial-counter {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  letter-spacing: 0.04em;
+}
+
+/* =====================================================================
+ * EDITORIAL KIT — Wave 2 (Real Perceptual Impact)
+ * Classes para reduzir a aparência "dashboard SaaS" e introduzir
+ * composição editorial premium. Puramente visual, additivo, sem JS.
+ * ===================================================================== */
+
+/* Section editorial — substitui o "tudo dentro de Card". Hairline no topo,
+   eyebrow + título display + corpo. Densidade controlada, ar institucional. */
+.editorial-section {
+  position: relative;
+  padding-top: 1.5rem;
+  border-top: 1px solid hsl(var(--border));
+}
+.editorial-section + .editorial-section {
+  margin-top: 1.5rem;
+}
+@media (min-width: 768px) {
+  .editorial-section { padding-top: 2rem; }
+  .editorial-section + .editorial-section { margin-top: 2.5rem; }
+}
+
+/* Headline editorial de seção — peso institucional, tracking apertado. */
+.editorial-headline {
+  font-size: 1.375rem;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: hsl(var(--foreground));
+}
+.editorial-headline em {
+  font-style: italic;
+  font-weight: 400;
+  color: hsl(var(--primary));
+}
+.editorial-headline-lead {
+  margin-top: 0.375rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: hsl(var(--muted-foreground));
+  max-width: 56ch;
+}
+@media (min-width: 768px) {
+  .editorial-headline { font-size: 1.625rem; }
+}
+
+/* Metric row — substitui grids de cards "boxados" por uma linha editorial
+   com divisores hairline verticais. Tabular-nums, hierarquia clara. */
+.metric-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid hsl(var(--border));
+  border-bottom: 1px solid hsl(var(--border));
+}
+.metric-row > .metric-cell {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid hsl(var(--border));
+}
+.metric-row > .metric-cell:first-child { border-top: 0; }
+.metric-row .metric-cell[data-emphasis='primary'] {
+  background: hsl(var(--primary) / 0.04);
+}
+@media (min-width: 768px) {
+  .metric-row { grid-template-columns: repeat(var(--metric-cols, 4), minmax(0, 1fr)); }
+  .metric-row > .metric-cell {
+    border-top: 0;
+    border-left: 1px solid hsl(var(--border));
+  }
+  .metric-row > .metric-cell:first-child { border-left: 0; }
+}
+.metric-cell-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.metric-cell-value {
+  margin-top: 0.5rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.05;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.015em;
+}
+.metric-cell[data-emphasis='primary'] .metric-cell-value {
+  color: hsl(var(--primary));
+  font-size: 1.875rem;
+}
+.metric-cell-hint {
+  margin-top: 0.375rem;
+  font-size: 0.6875rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.4;
+}
+
+/* Section eyebrow + counter combinados — substitui "1." / "2." genéricos */
+.editorial-section-mark {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.editorial-section-mark .editorial-counter {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: hsl(var(--primary));
+}
+.editorial-section-mark::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background: hsl(var(--primary) / 0.4);
+  align-self: center;
+}
+
+/* Soft surface — alternativa "leve" ao Card, sem shadow, hairline sutil */
+.surface-soft {
+  background: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+}
+.surface-soft-muted {
+  background: hsl(var(--muted) / 0.25);
+  border: 1px solid hsl(var(--border) / 0.7);
+  border-radius: 0.5rem;
+}
+
+/* =====================================================================
+ * EDITORIAL KIT — Wave 3 (Premium Visual Polish)
+ * ---------------------------------------------------------------------
+ * Refinamento puramente cosmético sobre as classes editoriais existentes.
+ * Foco: ritmo, tracking, hover discreto, hairlines mais nítidas, presença
+ * institucional. Zero JS, zero impacto em runtime/bundle/chunk graph.
+ * ===================================================================== */
+
+/* Hairlines mais sutis e premium — bordas a 60% para tirar o "peso de tabela" */
+.editorial-section,
+.metric-row,
+.metric-row > .metric-cell {
+  border-color: hsl(var(--border) / 0.6);
+}
+@media (min-width: 768px) {
+  .metric-row > .metric-cell { border-left-color: hsl(var(--border) / 0.5); }
+}
+
+/* Eyebrow refinado — tracking maior, hairline mais longa, presença editorial */
+.module-eyebrow {
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  color: hsl(var(--muted-foreground) / 0.85);
+}
+.module-eyebrow::before {
+  width: 2rem;
+  background: hsl(var(--border) / 0.8);
+}
+
+/* Headlines — refino de letterspacing e contraste para presença premium */
+.editorial-headline {
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground) / 0.96);
+}
+.editorial-headline-lead {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: hsl(var(--muted-foreground) / 0.92);
+  max-width: 60ch;
+}
+
+/* Métricas — tracking consistente e hint mais discreto */
+.metric-cell-label {
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  color: hsl(var(--muted-foreground) / 0.85);
+}
+.metric-cell-value {
+  letter-spacing: -0.02em;
+}
+.metric-cell-hint {
+  color: hsl(var(--muted-foreground) / 0.75);
+}
+
+/* Hover discreto sobre cells de métrica — apenas quando interativas */
+.metric-cell[role='button'],
+.metric-cell[data-interactive='true'] {
+  transition: background-color 200ms ease, color 200ms ease;
+  cursor: pointer;
+}
+.metric-cell[role='button']:hover,
+.metric-cell[data-interactive='true']:hover {
+  background: hsl(var(--muted) / 0.35);
+}
+
+/* Section mark — peso institucional, melhor balanço visual */
+.editorial-section-mark {
+  margin-bottom: 1rem;
+  gap: 0.875rem;
+}
+.editorial-section-mark::before {
+  width: 2rem;
+  background: hsl(var(--primary) / 0.5);
+}
+.editorial-section-mark .editorial-counter {
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+}
+
+/* Counter editorial — números tabulares com leve refino tipográfico */
+.editorial-counter {
+  font-feature-settings: 'tnum' 1, 'cv11' 1;
+}
+
+/* Flag editorial — underline mais delicado e tracking refinado */
+.editorial-flag {
+  letter-spacing: 0.12em;
+  font-size: 0.625rem;
+  border-bottom-width: 1px;
+  padding-bottom: 0.0625rem;
+}
+
+/* Surface-soft — hover discreto opcional para superfícies clicáveis */
+.surface-soft[data-interactive='true'] {
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+.surface-soft[data-interactive='true']:hover {
+  border-color: hsl(var(--border));
+  background: hsl(var(--muted) / 0.15);
+}
+
+/* Ritmo vertical entre títulos editoriais e seu lead */
+.editorial-headline + .editorial-headline-lead {
+  margin-top: 0.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Wave 4 — Institutional UX Consistency & Visual Governance
+ * Ajustes finos de governança: ritmo entre counter+eyebrow, alinhamento
+ * baseline e travas de consistência. Puramente visual, additivo.
+ * ───────────────────────────────────────────────────────────────────── */
+
+/* Section mark: alinhar counter + eyebrow na mesma baseline com gap único.
+   Antes, quando counter e eyebrow conviviam, o tracking diferente causava
+   leve desalinhamento vertical. Agora ambos compartilham line-height 1. */
+.editorial-section-mark {
+  align-items: center;
+}
+.editorial-section-mark .editorial-counter,
+.editorial-section-mark .module-eyebrow {
+  line-height: 1;
+}
+/* Quando o eyebrow vem ao lado do counter, suprimir seu marker (•) prefixado
+   para evitar duplicidade visual com a régua do section-mark. */
+.editorial-section-mark .editorial-counter + .module-eyebrow::before {
+  display: none;
+}
+.editorial-section-mark .editorial-counter + .module-eyebrow {
+  padding-left: 0.5rem;
+  border-left: 1px solid hsl(var(--border) / 0.6);
+  margin-left: 0.125rem;
+}
+
+/* Reduced motion — neutralizar todos os hovers/transitions adicionados */
+@media (prefers-reduced-motion: reduce) {
+  .metric-cell[role='button'],
+  .metric-cell[data-interactive='true'],
+  .surface-soft[data-interactive='true'] {
+    transition: none;
+  }
+}
+
+
+/* =====================================================================
+ * EDITORIAL KIT — Wave 5 (Simulator Strategic Layout Redesign)
+ * ---------------------------------------------------------------------
+ * Redesign do painel direito do Simulador: 2×N em vez de 4×1, presença
+ * tipográfica nos números, anti-overlap por construção, ritmo vertical
+ * editorial. Puramente CSS — zero impacto em runtime/bundle/JS.
+ * ===================================================================== */
+
+/* Variant editorial: maior respiração, sem overflow horizontal e com
+   tipografia financeira de mesa estratégica. */
+.metric-row.metric-row--editorial {
+  border-top: 0;
+  border-bottom: 0;
+}
+/* Container query por CÉLULA: a tipografia escala com a largura real da
+   célula (não da row inteira), garantindo que valores como
+   "R$ 5.634.789,00" caibam em 1 linha mesmo com 2 colunas no desktop. */
+.metric-row.metric-row--editorial > .metric-cell {
+  padding: 1.05rem 1.1rem;
+  min-width: 0;
+  container-type: inline-size;
+}
+/* CRITICAL: numbers must NEVER wrap. clamp() escalado em cqw da própria
+   célula — pisos baixos cobrem mobile estreito, tetos cobrem desktop largo. */
+.metric-row.metric-row--editorial > .metric-cell .metric-cell-value {
+  font-size: clamp(0.95rem, 7.2cqw, 1.6rem);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+  /* Fallback final: se ainda assim faltar 1-2px, encolhe sem quebrar. */
+  text-wrap: nowrap;
+}
+.metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary'] .metric-cell-value {
+  font-size: clamp(1.1rem, 9cqw, 2.1rem);
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .metric-row.metric-row--editorial > .metric-cell {
+    padding: 1.15rem 1.25rem;
+  }
+}
+
+/* Hairlines da variante: superior/inferior contínuas e separadores internos
+   apenas como divisores capilares — nada de "tabela". */
+.metric-row.metric-row--editorial {
+  border-top: 1px solid hsl(var(--border) / 0.55);
+  border-bottom: 1px solid hsl(var(--border) / 0.55);
+}
+.metric-row.metric-row--editorial > .metric-cell {
+  border-top: 1px solid hsl(var(--border) / 0.45);
+  border-left: 0;
+}
+.metric-row.metric-row--editorial > .metric-cell:first-child { border-top: 0; }
+@media (min-width: 768px) {
+  .metric-row.metric-row--editorial > .metric-cell {
+    border-top: 0;
+    border-left: 1px solid hsl(var(--border) / 0.45);
+  }
+  .metric-row.metric-row--editorial > .metric-cell:nth-child(odd) {
+    border-left: 0;
+  }
+  .metric-row.metric-row--editorial > .metric-cell:nth-child(n+3) {
+    border-top: 1px solid hsl(var(--border) / 0.45);
+  }
+}
+
+/* Ênfase primária — fundo levíssimo, sem aspecto de "card destacado" */
+.metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary'] {
+  background: hsl(var(--primary) / 0.035);
+}
+
+/* Card de formulário — versão "mesa consultiva" (menos ERP).
+   Ativada por data-attr no Card existente, sem alterar JSX existente. */
+[data-editorial-form='true'].rounded-lg,
+[data-editorial-form='true'] {
+  box-shadow: none;
+  border-color: hsl(var(--border) / 0.55);
+  background: hsl(var(--background));
+}
+[data-editorial-form='true'] > [data-editorial-form-header='true'] {
+  background: transparent;
+  border-bottom-color: hsl(var(--border) / 0.4);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* =====================================================================
+ * Wave 6 — Simulator Premium Cockpit (CSS-only, additive)
+ * ---------------------------------------------------------------------
+ * Eleva o painel de Resultados do Simulador a "mesa estratégica"
+ * com hero metrics, ambient backdrop e hierarquia cinematográfica.
+ * 100% visual — sem mudanças em runtime/bundle/lógica.
+ * ===================================================================== */
+
+/* Painel cockpit: fundo ambiente sutil + respiração lateral, sem cards aninhados */
+[data-cockpit-hero='true'] {
+  position: relative;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: 0.875rem;
+  background:
+    radial-gradient(120% 80% at 100% 0%, hsl(var(--primary) / 0.05), transparent 55%),
+    linear-gradient(180deg, hsl(var(--muted) / 0.35) 0%, hsl(var(--background)) 75%);
+  border: 1px solid hsl(var(--border) / 0.5);
+  isolation: isolate;
+}
+[data-cockpit-hero='true']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 hsl(var(--background) / 0.6);
+  z-index: -1;
+}
+@media (min-width: 1280px) {
+  [data-cockpit-hero='true'] {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+}
+
+/* Hero metric — número dominante na célula primária dentro de cockpit */
+[data-cockpit-hero='true'] .metric-row.metric-row--editorial {
+  border-top: 0;
+  border-bottom: 0;
+  background: transparent;
+}
+[data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell {
+  background: transparent;
+}
+[data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary'] {
+  background:
+    linear-gradient(180deg, hsl(var(--primary) / 0.08), hsl(var(--primary) / 0.03));
+  border-radius: 0.75rem;
+  border: 2px solid hsl(var(--primary) / 0.22);
+  box-shadow: 0 1px 0 hsl(var(--background) / 0.6) inset;
+  padding: 2rem 2rem;
+}
+[data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary'] .metric-cell-value {
+  /* Wave 2 emphasis: monthly payment as the hero number. */
+  font-size: clamp(2.4rem, 11cqw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: hsl(var(--primary));
+  white-space: nowrap;
+}
+@media (min-width: 1536px) {
+  [data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary'] .metric-cell-value {
+    font-size: 4rem;
+  }
+}
+
+/* Demais células — leitura "stats" leve, sem virar cards concorrentes */
+[data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary']) {
+  border-top: 0;
+  border-left: 0;
+  padding: 0.85rem 1rem;
+}
+[data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary']) {
+  container-type: inline-size;
+}
+[data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary']) .metric-cell-value {
+  font-size: clamp(0.95rem, 9.5cqw, 1.45rem);
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground) / 0.92);
+  white-space: nowrap;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: clip;
+}
+@media (min-width: 1280px) {
+  [data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary']) .metric-cell-value {
+    font-size: clamp(1rem, 9cqw, 1.55rem);
+  }
+}
+
+/* Layout cockpit: primária ocupa 2 colunas no md+, demais em grade fluida */
+@media (min-width: 768px) {
+  [data-cockpit-hero='true'] .metric-row.metric-row--editorial {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  [data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell {
+    border: 0;
+  }
+  [data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary'] {
+    grid-column: span 2;
+  }
+  [data-cockpit-hero='true'] .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary']) {
+    border: 1px solid hsl(var(--border) / 0.45);
+    border-radius: 0.5rem;
+    background: hsl(var(--background) / 0.6);
+  }
+}
+
+/* Eyebrow + headline cockpit: maior presença, mantendo identidade editorial */
+[data-cockpit-hero='true'] .editorial-headline {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+@media (min-width: 1280px) {
+  [data-cockpit-hero='true'] .editorial-headline {
+    font-size: 1.8rem;
+  }
+}
+
+/* Reduced motion — desliga gradientes animados (defensivo) */
+@media (prefers-reduced-motion: reduce) {
+  [data-cockpit-hero='true'] { transition: none; }
+}
+
+/* =====================================================================
+ * Wave 7 — Simulator Cinematic Layout (CSS-only, additive)
+ * ---------------------------------------------------------------------
+ * Eleva o restante do Simulador (estratégia de lance, pós-contemplação,
+ * impacto, evolução atuarial) ao mesmo padrão "cockpit cinematográfico"
+ * do hero. Suaviza chrome de Card legados, cria ritmo editorial entre
+ * blocos e remove aparência de dashboard administrativo.
+ * 100% visual — zero runtime/lógica/bundling.
+ * ===================================================================== */
+
+/* Faixa de lance — banda larga ambiente, sem cara de "card de formulário" */
+[data-cockpit-strip='true'] {
+  position: relative;
+  border-radius: 0.875rem;
+  background:
+    radial-gradient(110% 70% at 0% 0%, hsl(var(--primary) / 0.04), transparent 55%),
+    linear-gradient(180deg, hsl(var(--muted) / 0.28) 0%, hsl(var(--background)) 80%);
+  border: 1px solid hsl(var(--border) / 0.45);
+  padding: 0.25rem;
+}
+[data-cockpit-strip='true'] > .rounded-lg,
+[data-cockpit-strip='true'] [data-slot='card'],
+[data-cockpit-strip='true'] > div[class*='rounded'] {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Board cinematográfico — bloco unificado para Pós-contemplação / Impacto / Atuarial.
+   Cards filhos perdem o chrome de "caixinha SaaS" e ganham respiro editorial. */
+[data-cockpit-board='true'] {
+  position: relative;
+  border-radius: 0.875rem;
+  background:
+    linear-gradient(180deg, hsl(var(--muted) / 0.22) 0%, hsl(var(--background)) 70%);
+  border: 1px solid hsl(var(--border) / 0.4);
+  padding: 0.5rem 0.5rem;
+}
+@media (min-width: 1024px) {
+  [data-cockpit-board='true'] {
+    padding: 0.75rem 0.875rem;
+  }
+}
+/* Cards filhos: sem sombra, borda quase imperceptível, separados por hairline */
+[data-cockpit-board='true'] > .rounded-lg,
+[data-cockpit-board='true'] > div > .rounded-lg {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  position: relative;
+}
+[data-cockpit-board='true'] > .rounded-lg + .rounded-lg::before,
+[data-cockpit-board='true'] > div + div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background: hsl(var(--border) / 0.4);
+}
+
+/* Headers internos perdem aparência de header de card e viram eyebrows discretos */
+[data-cockpit-strip='true'] [class*='CardHeader'],
+[data-cockpit-board='true'] [class*='CardHeader'] {
+  padding-bottom: 0.5rem;
+}
+[data-cockpit-strip='true'] [class*='CardTitle'],
+[data-cockpit-board='true'] [class*='CardTitle'] {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Reduced motion defensivo */
+@media (prefers-reduced-motion: reduce) {
+  [data-cockpit-strip='true'],
+  [data-cockpit-board='true'] { transition: none; }
+}
+
+
+/* =====================================================================
+ * Wave 8 — Simulator Signature Experience (CSS-only, additive)
+ * ---------------------------------------------------------------------
+ * Identidade visual proprietária: shell com rail superior assinatura,
+ * capítulos numerados editoriais entre os blocos, cantos hairline no
+ * hero, ambient sheen sutil. 100% camada visual.
+ * ===================================================================== */
+
+/* Shell de assinatura — barra editorial discreta no topo do Simulador */
+[data-signature-shell='true'] {
+  position: relative;
+  isolation: isolate;
+}
+[data-signature-shell='true']::before {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 64px;
+  margin: 0 0 0.25rem;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary) / 0.4) 60%,
+    transparent 100%
+  );
+  border-radius: 2px;
+}
+
+/* Capítulos numerados — marca editorial proprietária entre as seções.
+   Renderizado ::before com counter dos data-attrs, sem custo JSX. */
+[data-signature-chapter] {
+  position: relative;
+}
+[data-signature-chapter]::before {
+  content: counter(sigchap, decimal-leading-zero) '  ·  ' attr(data-signature-label);
+  counter-reset: sigchap-noop;
+  display: block;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground) / 0.78);
+  margin-bottom: 0.625rem;
+  padding-left: 0.125rem;
+}
+/* Reset de counter via data-attr direto: usamos o número literal */
+[data-signature-chapter='01']::before { content: '01  ·  ' attr(data-signature-label); }
+[data-signature-chapter='02']::before { content: '02  ·  ' attr(data-signature-label); }
+[data-signature-chapter='03']::before { content: '03  ·  ' attr(data-signature-label); }
+[data-signature-chapter='04']::before { content: '04  ·  ' attr(data-signature-label); }
+[data-signature-chapter='05']::before { content: '05  ·  ' attr(data-signature-label); }
+
+/* Hairline lateral discreto no chapter mark — toque editorial */
+[data-signature-chapter]::after {
+  content: '';
+  position: absolute;
+  top: 0.4rem;
+  left: -0.875rem;
+  width: 2px;
+  height: 0.6rem;
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 2px;
+  display: none;
+}
+@media (min-width: 1280px) {
+  [data-signature-chapter]::after {
+    display: block;
+  }
+}
+
+/* Sheen ambient extra no hero — toque cinematográfico sutil (signature) */
+[data-signature-shell='true'] [data-cockpit-hero='true'] {
+  background:
+    radial-gradient(140% 90% at 100% 0%, hsl(var(--primary) / 0.07), transparent 55%),
+    radial-gradient(80% 50% at 0% 100%, hsl(var(--secondary) / 0.04), transparent 60%),
+    linear-gradient(180deg, hsl(var(--muted) / 0.38) 0%, hsl(var(--background)) 78%);
+}
+
+/* Cantos hairline no hero — assinatura de cockpit proprietário */
+[data-signature-shell='true'] [data-cockpit-hero='true']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    /* Top-left */
+    linear-gradient(to right, hsl(var(--primary) / 0.55), transparent 14px) top left / 14px 1px no-repeat,
+    linear-gradient(to bottom, hsl(var(--primary) / 0.55), transparent 14px) top left / 1px 14px no-repeat,
+    /* Top-right */
+    linear-gradient(to left, hsl(var(--primary) / 0.55), transparent 14px) top right / 14px 1px no-repeat,
+    linear-gradient(to bottom, hsl(var(--primary) / 0.55), transparent 14px) top right / 1px 14px no-repeat,
+    /* Bottom-left */
+    linear-gradient(to right, hsl(var(--primary) / 0.35), transparent 14px) bottom left / 14px 1px no-repeat,
+    linear-gradient(to top, hsl(var(--primary) / 0.35), transparent 14px) bottom left / 1px 14px no-repeat,
+    /* Bottom-right */
+    linear-gradient(to left, hsl(var(--primary) / 0.35), transparent 14px) bottom right / 14px 1px no-repeat,
+    linear-gradient(to top, hsl(var(--primary) / 0.35), transparent 14px) bottom right / 1px 14px no-repeat;
+  z-index: 1;
+}
+
+/* Strip e board recebem rail vertical assinatura à esquerda no desktop */
+@media (min-width: 1024px) {
+  [data-signature-shell='true'] [data-cockpit-strip='true'],
+  [data-signature-shell='true'] [data-cockpit-board='true'] {
+    position: relative;
+  }
+  [data-signature-shell='true'] [data-cockpit-strip='true']::after,
+  [data-signature-shell='true'] [data-cockpit-board='true']::after {
+    content: '';
+    position: absolute;
+    left: -0.375rem;
+    top: 1.25rem;
+    bottom: 1.25rem;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.35) 20%,
+      hsl(var(--primary) / 0.15) 80%,
+      transparent 100%
+    );
+    border-radius: 2px;
+    pointer-events: none;
+  }
+}
+
+/* Tipografia signature — eyebrow do cockpit em monospace editorial */
+[data-signature-shell='true'] [data-cockpit-hero='true'] .module-eyebrow,
+[data-signature-shell='true'] [data-cockpit-hero='true'] [class*='eyebrow'] {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  letter-spacing: 0.2em;
+}
+
+/* Print: remove toda a camada signature para não poluir PDF/impressão */
+@media print {
+  [data-signature-shell='true']::before,
+  [data-signature-chapter]::before,
+  [data-signature-chapter]::after,
+  [data-signature-shell='true'] [data-cockpit-hero='true']::after,
+  [data-signature-shell='true'] [data-cockpit-strip='true']::after,
+  [data-signature-shell='true'] [data-cockpit-board='true']::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+/* Reduced motion: nada animado, gradients permanecem estáticos (defensivo) */
+@media (prefers-reduced-motion: reduce) {
+  [data-signature-shell='true'] [data-cockpit-hero='true'] { transition: none; }
+}
+
+/* ==========================================================================
+ * Wave 9 — Comparative Intelligence Cinematic (CSS-only, additive)
+ * Eleva o Comparador a "mesa analítica premium": board ambiente, eixo
+ * comparativo cinematográfico nas tabs e atmosfera high-end nos painéis.
+ * ========================================================================= */
+
+
+/* Mesa analítica — board cinematográfico que envolve o conteúdo da tab */
+[data-analytical-board='true'] {
+  position: relative;
+  border-radius: 0.875rem;
+  padding: 0.5rem;
+  background:
+    radial-gradient(
+      120% 80% at 0% 0%,
+      hsl(var(--primary) / 0.045) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      100% 70% at 100% 100%,
+      hsl(var(--secondary) / 0.04) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      hsl(var(--muted) / 0.35) 0%,
+      hsl(var(--background) / 0.9) 100%
+    );
+  border: 1px solid hsl(var(--border) / 0.45);
+  box-shadow:
+    0 1px 0 hsl(var(--background) / 0.6) inset,
+    0 24px 60px -40px hsl(var(--primary) / 0.35);
+}
+
+@media (min-width: 768px) {
+  [data-analytical-board='true'] {
+    padding: 0.875rem;
+    border-radius: 1rem;
+  }
+}
+
+/* Hairlines decorativas — assinatura institucional nos cantos do board */
+[data-analytical-board='true']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    /* Top-left */
+    linear-gradient(to right, hsl(var(--primary) / 0.4), transparent 18px) top left / 18px 1px no-repeat,
+    linear-gradient(to bottom, hsl(var(--primary) / 0.4), transparent 18px) top left / 1px 18px no-repeat,
+    /* Bottom-right */
+    linear-gradient(to left, hsl(var(--primary) / 0.4), transparent 18px) bottom right / 18px 1px no-repeat,
+    linear-gradient(to top, hsl(var(--primary) / 0.4), transparent 18px) bottom right / 1px 18px no-repeat;
+  z-index: 0;
+}
+
+[data-analytical-board='true'] > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cards filhos integram-se ao board: chrome neutralizado, hierarquia restaurada
+ * por hairline interna sutil (mesma linguagem do data-cockpit-board). */
+[data-analytical-board='true'] [data-slot='card'],
+[data-analytical-board='true'] > div > [data-slot='card'] {
+  background: hsl(var(--background) / 0.6);
+  border: 1px solid hsl(var(--border) / 0.4);
+  box-shadow: none;
+  backdrop-filter: blur(2px);
+}
+
+/* Print: zera a camada cinematográfica do comparador */
+@media print {
+  
+  [data-analytical-board='true'],
+  [data-analytical-board='true']::before {
+    background: none !important;
+    box-shadow: none !important;
+    border-color: hsl(var(--border)) !important;
+  }
+  [data-analytical-board='true']::before { display: none !important; content: none !important; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  
+}
+
+
+/* =====================================================================
+ * Wave 10 — Structural Modern Layout Evolution (CSS-only, additive)
+ * Reorganiza o Simulador em arquitetura espacial contemporânea:
+ *   • Stage 01: hero dominante à esquerda, console paramétrico à direita
+ *   • Strip 02: faixa cinematográfica full-bleed visual
+ *   • Board 03: grid assimétrico 12-col (primary 7 / secondary 5 / full 12)
+ * Sem alterar JSX além de data-attrs. Sem alterar runtime, providers,
+ * vite.config, manualChunks ou lógica financeira.
+ * ===================================================================== */
+
+/* ───────── Stage 01: cockpit assimétrico hero-dominant ───────── */
+@media (min-width: 1280px) {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] {
+    /* Form (console) menor à esquerda, Resultado (hero) dominante à direita. */
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.4fr) !important;
+    column-gap: 2.25rem;
+    align-items: stretch;
+  }
+  /* Hero (resultados) à esquerda, dominante */
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='hero'] {
+    order: 1;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Console (parâmetros) à direita, slim, com sticky para acompanhar leitura */
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='console'] {
+    order: 2;
+    position: sticky;
+    top: 0.75rem;
+    align-self: start;
+  }
+  /* Console: chrome neutralizado + rail vertical institucional à esquerda */
+  [data-spatial-shell='true'] [data-spatial-zone='console'] [data-slot='card'],
+  [data-spatial-shell='true'] [data-spatial-zone='console'] > div > [class*='rounded-lg'] {
+    background: linear-gradient(180deg, hsl(var(--muted) / 0.18) 0%, hsl(var(--background)) 100%);
+    border: 0;
+    border-left: 1px solid hsl(var(--border) / 0.55);
+    border-radius: 0;
+    box-shadow: none;
+    padding-left: 1.25rem;
+  }
+  /* Hero: presença espacial reforçada */
+  [data-spatial-shell='true'] [data-spatial-zone='hero'][data-cockpit-hero='true'] {
+    background:
+      radial-gradient(ellipse 130% 80% at 0% 0%, hsl(var(--primary) / 0.07), transparent 60%),
+      radial-gradient(ellipse 100% 70% at 100% 100%, hsl(var(--secondary) / 0.05), transparent 65%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.12) 100%);
+  }
+}
+
+/* ───────── Strip 02: faixa cinematográfica com respiro ampliado ───────── */
+[data-spatial-shell='true'] [data-spatial-zone='strip'] {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1rem;
+  border-radius: 1.25rem;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  [data-spatial-shell='true'] [data-spatial-zone='strip'] {
+    padding: 1.75rem 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+/* Linhas horizontais hairline nas bordas — assinatura editorial wide */
+[data-spatial-shell='true'] [data-spatial-zone='strip']::after {
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.35), transparent);
+  pointer-events: none;
+}
+
+/* ───────── Board 03: grid assimétrico 12-col contemporâneo ───────── */
+[data-spatial-board-grid] {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  [data-spatial-board-grid] {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
+  [data-spatial-board-grid] [data-spatial-board-cell='primary']   { grid-column: span 7; }
+  [data-spatial-board-grid] [data-spatial-board-cell='secondary'] { grid-column: span 5; }
+  [data-spatial-board-grid] [data-spatial-board-cell='full']      { grid-column: span 12; }
+  [data-spatial-board-grid][data-spatial-board-layout='single'] [data-spatial-board-cell='primary'] {
+    grid-column: 3 / span 8;
+  }
+}
+/* Reaplica neutralização de chrome para cards aninhados sob board+grid (3 níveis) */
+[data-cockpit-board='true'] [data-spatial-board-cell] > .rounded-lg,
+[data-cockpit-board='true'] [data-spatial-board-cell] [data-slot='card'] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  position: relative;
+}
+/* Hairline divisor entre primary e secondary (vertical) em xl */
+@media (min-width: 1024px) {
+  [data-spatial-board-grid] [data-spatial-board-cell='secondary'] {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  [data-spatial-board-grid] [data-spatial-board-cell='secondary']::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12%;
+    bottom: 12%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, hsl(var(--border) / 0.55), transparent);
+  }
+  /* Hairline divisor horizontal acima do full */
+  [data-spatial-board-grid] [data-spatial-board-cell='full'] {
+    position: relative;
+    padding-top: 1.25rem;
+    margin-top: 0.25rem;
+  }
+  [data-spatial-board-grid] [data-spatial-board-cell='full']::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, hsl(var(--border) / 0.5), transparent);
+  }
+}
+
+/* Print: zera a camada espacial — preserva fluxo linear */
+@media print {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] {
+    grid-template-columns: 1fr !important;
+  }
+  [data-spatial-shell='true'] [data-spatial-zone='console'] {
+    position: static !important;
+  }
+  [data-spatial-shell='true'] [data-spatial-zone='strip']::after,
+  [data-spatial-board-grid] [data-spatial-board-cell='secondary']::before,
+  [data-spatial-board-grid] [data-spatial-board-cell='full']::before {
+    display: none !important;
+    content: none !important;
+  }
+  [data-spatial-board-grid] {
+    display: block !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-spatial-shell='true'] [data-spatial-zone='console'] { transition: none; }
+}
+
+/* =====================================================================
+ * Wave 11 — Simulator Architectural System Consolidation (CSS-only, additive)
+ * Estende a arquitetura espacial moderna para TODO o Simulador:
+ *   • Chapter 04 (analytical): camada analítica atmosférica
+ *   • Chapter 05 (contextual): hairline contextual discreta
+ *   • Chapter 06 (conversion): warm primary glow para próximos passos
+ *   • Ritmo vertical unificado entre chapters (rhythm cinematográfico)
+ *   • Continuidade espacial: ambient connectors + breathing consistente
+ * Sem alterar runtime, providers, vite.config ou lógica financeira.
+ * ===================================================================== */
+
+/* ───────── Ritmo vertical contínuo entre chapters ───────── */
+[data-spatial-shell='true'] > [data-signature-chapter] + [data-signature-chapter],
+[data-spatial-shell='true'] > [data-spatial-zone] + [data-spatial-zone],
+[data-spatial-shell='true'] > [data-signature-chapter] + [data-spatial-zone],
+[data-spatial-shell='true'] > [data-spatial-zone] + [data-signature-chapter] {
+  margin-top: 1.75rem;
+}
+@media (min-width: 1024px) {
+  [data-spatial-shell='true'] > [data-signature-chapter] + [data-signature-chapter],
+  [data-spatial-shell='true'] > [data-spatial-zone] + [data-spatial-zone],
+  [data-spatial-shell='true'] > [data-signature-chapter] + [data-spatial-zone],
+  [data-spatial-shell='true'] > [data-spatial-zone] + [data-signature-chapter] {
+    margin-top: 2.5rem;
+  }
+}
+
+/* ───────── Chapter 04 — Camada analítica atmosférica ───────── */
+[data-spatial-shell='true'] [data-spatial-zone='analytical'] {
+  position: relative;
+  padding: 1.5rem 1rem;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 0%, hsl(var(--muted) / 0.28), transparent 65%),
+    linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.1) 100%);
+  border: 1px solid hsl(var(--border) / 0.35);
+}
+@media (min-width: 1024px) {
+  [data-spatial-shell='true'] [data-spatial-zone='analytical'] {
+    padding: 2rem 1.75rem;
+  }
+}
+/* Hairline editorial superior — assinatura de camada analítica */
+[data-spatial-shell='true'] [data-spatial-zone='analytical']::before {
+  content: '';
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--secondary) / 0.4), transparent);
+  pointer-events: none;
+}
+/* Cards internos (chart + composição) integram-se à camada — chrome neutralizado */
+[data-spatial-shell='true'] [data-spatial-zone='analytical'] > div > [data-slot='card'],
+[data-spatial-shell='true'] [data-spatial-zone='analytical'] [class*='rounded-lg'][class*='shadow'] {
+  background: hsl(var(--background) / 0.55);
+  border: 1px solid hsl(var(--border) / 0.4);
+  box-shadow: none;
+  backdrop-filter: blur(2px);
+}
+
+/* ───────── Chapter 05 — Camada contextual discreta ───────── */
+[data-spatial-shell='true'] [data-spatial-zone='contextual'] {
+  position: relative;
+  padding: 0.5rem 0;
+  opacity: 0.92;
+}
+[data-spatial-shell='true'] [data-spatial-zone='contextual']::before {
+  content: '';
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--border) / 0.55), transparent);
+  pointer-events: none;
+}
+[data-spatial-shell='true'] [data-spatial-zone='contextual'] [data-slot='card'],
+[data-spatial-shell='true'] [data-spatial-zone='contextual'] > [class*='rounded-lg'] {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* ───────── Chapter 06 — Camada de conversão (warm glow) ───────── */
+[data-spatial-shell='true'] [data-spatial-zone='conversion'] {
+  position: relative;
+  padding: 1.5rem 1rem 1.25rem;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 100%, hsl(var(--primary) / 0.06), transparent 70%),
+    linear-gradient(180deg, hsl(var(--muted) / 0.08) 0%, hsl(var(--background)) 100%);
+}
+@media (min-width: 1024px) {
+  [data-spatial-shell='true'] [data-spatial-zone='conversion'] {
+    padding: 2rem 1.75rem 1.75rem;
+  }
+}
+/* Hairline base com tint primary — assinatura de zona de ação */
+[data-spatial-shell='true'] [data-spatial-zone='conversion']::after {
+  content: '';
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.45), transparent);
+  pointer-events: none;
+}
+
+/* ───────── Continuidade: chapter eyebrow editorial unificado ───────── */
+/* Capítulos analíticos e de conversão herdam a mesma assinatura editorial
+ * dos chapters 01–03 (já tratados em Wave 8 via [data-signature-chapter]).
+ * Aqui apenas garantimos continuidade espacial dos eyebrows internos. */
+[data-spatial-shell='true'] [data-spatial-zone='analytical'] > div > * + *,
+[data-spatial-shell='true'] [data-spatial-zone='conversion'] > * + * {
+  margin-top: 1rem;
+}
+
+/* ───────── Print: zera toda a camada espacial estendida ───────── */
+@media print {
+  [data-spatial-shell='true'] [data-spatial-zone='analytical'],
+  [data-spatial-shell='true'] [data-spatial-zone='conversion'],
+  [data-spatial-shell='true'] [data-spatial-zone='contextual'] {
+    background: none !important;
+    border: 0 !important;
+    padding: 0 !important;
+  }
+  [data-spatial-shell='true'] [data-spatial-zone='analytical']::before,
+  [data-spatial-shell='true'] [data-spatial-zone='contextual']::before,
+  [data-spatial-shell='true'] [data-spatial-zone='conversion']::after {
+    display: none !important;
+    content: none !important;
+  }
+  [data-spatial-shell='true'] > [data-signature-chapter] + *,
+  [data-spatial-shell='true'] > [data-spatial-zone] + * {
+    margin-top: 1rem !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-spatial-shell='true'] [data-spatial-zone='analytical'],
+  [data-spatial-shell='true'] [data-spatial-zone='conversion'] { transition: none; }
+}
+
+/* ============================================================
+ * WAVE 12 — Radical Visual Modernization (Simulator)
+ * Additive, scoped to [data-spatial-shell="true"] AND
+ * [data-signature-shell="true"]. Pure presentation layer:
+ * NO JSX changes, NO runtime impact, NO chunk graph touch.
+ * Modernizes inputs, selects, cards, tabs, buttons, surfaces.
+ * ============================================================ */
+
+[data-spatial-shell='true'],
+[data-signature-shell='true'] {
+  --wave12-radius: 14px;
+  --wave12-radius-sm: 10px;
+  --wave12-surface: hsl(var(--card) / 0.72);
+  --wave12-surface-strong: hsl(var(--card));
+  --wave12-hairline: hsl(var(--border) / 0.55);
+  --wave12-hairline-strong: hsl(var(--border));
+  --wave12-glow-primary: 0 0 0 1px hsl(var(--primary) / 0.18), 0 8px 28px -14px hsl(var(--primary) / 0.45);
+  --wave12-shadow-soft: 0 1px 0 hsl(var(--foreground) / 0.02), 0 8px 24px -16px hsl(var(--foreground) / 0.18);
+  --wave12-shadow-lift: 0 1px 0 hsl(var(--foreground) / 0.03), 0 18px 40px -22px hsl(var(--foreground) / 0.28);
+}
+
+/* ---- Surfaces: cards become architectural panels ---- */
+[data-spatial-shell='true'] [class*='rounded-lg'][class*='border'][class*='bg-card'],
+[data-spatial-shell='true'] .card,
+[data-spatial-shell='true'] [data-slot='card'],
+[data-spatial-shell='true'] > div [class~='shadow-sm'][class*='border'][class*='bg-card'] {
+  border-radius: var(--wave12-radius) !important;
+  border-color: var(--wave12-hairline) !important;
+  background:
+    linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--card) / 0.92) 100%) !important;
+  box-shadow: var(--wave12-shadow-soft) !important;
+  backdrop-filter: blur(6px) saturate(108%);
+  -webkit-backdrop-filter: blur(6px) saturate(108%);
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+}
+[data-spatial-shell='true'] [class*='rounded-lg'][class*='border'][class*='bg-card']:hover {
+  box-shadow: var(--wave12-shadow-lift) !important;
+  border-color: hsl(var(--primary) / 0.28) !important;
+}
+
+/* ---- Inputs: contemporary controls (text/number/currency) ---- */
+[data-spatial-shell='true'] input:not([type='checkbox']):not([type='radio']):not([type='range']),
+[data-spatial-shell='true'] [role='combobox'],
+[data-spatial-shell='true'] button[role='combobox'] {
+  border-radius: var(--wave12-radius-sm) !important;
+  border: 1px solid var(--wave12-hairline) !important;
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted) / 0.35) 100%) !important;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.6),
+    0 1px 0 hsl(var(--foreground) / 0.02) !important;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease !important;
+  font-feature-settings: 'tnum' 1, 'cv11' 1;
+}
+[data-spatial-shell='true'] input:not([type='checkbox']):not([type='radio']):hover,
+[data-spatial-shell='true'] [role='combobox']:hover,
+[data-spatial-shell='true'] button[role='combobox']:hover {
+  border-color: hsl(var(--primary) / 0.42) !important;
+}
+[data-spatial-shell='true'] input:not([type='checkbox']):not([type='radio']):focus-visible,
+[data-spatial-shell='true'] [role='combobox']:focus-visible,
+[data-spatial-shell='true'] button[role='combobox']:focus-visible {
+  border-color: hsl(var(--primary) / 0.65) !important;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.6),
+    0 0 0 3px hsl(var(--primary) / 0.16) !important;
+  outline: none !important;
+}
+
+/* Currency/percent prefix glyphs — soften */
+[data-spatial-shell='true'] .relative > span.absolute {
+  font-feature-settings: 'tnum' 1;
+  letter-spacing: 0.02em;
+  opacity: 0.78;
+}
+
+/* ---- Labels: editorial micro-caps ---- */
+[data-spatial-shell='true'] label,
+[data-spatial-shell='true'] .input-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ---- Tabs: editorial axis (premium pill row) ---- */
+[data-spatial-shell='true'] [role='tablist'],
+[data-signature-shell='true'] [role='tablist'] {
+  background: linear-gradient(180deg,
+    hsl(var(--muted) / 0.55),
+    hsl(var(--muted) / 0.25)) !important;
+  border: 1px solid var(--wave12-hairline) !important;
+  border-radius: 999px !important;
+  padding: 4px !important;
+  box-shadow: inset 0 1px 0 hsl(var(--background) / 0.6) !important;
+  height: auto !important;
+}
+[data-spatial-shell='true'] [role='tab'],
+[data-signature-shell='true'] [role='tab'] {
+  border-radius: 999px !important;
+  letter-spacing: 0.04em !important;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease !important;
+}
+[data-spatial-shell='true'] [role='tab'][data-state='active'],
+[data-signature-shell='true'] [role='tab'][data-state='active'] {
+  background: linear-gradient(180deg,
+    hsl(var(--primary)),
+    hsl(var(--primary) / 0.92)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  box-shadow:
+    0 1px 0 hsl(var(--background) / 0.4) inset,
+    0 6px 18px -10px hsl(var(--primary) / 0.7) !important;
+}
+
+/* ---- ToggleGroup: premium segmented control ---- */
+[data-spatial-shell='true'] [data-radix-toggle-group-root],
+[data-spatial-shell='true'] [role='group']:has([data-state]) {
+  background: hsl(var(--muted) / 0.5);
+  border: 1px solid var(--wave12-hairline);
+  border-radius: 999px;
+  padding: 2px;
+  box-shadow: inset 0 1px 0 hsl(var(--background) / 0.5);
+}
+[data-spatial-shell='true'] [data-radix-toggle-group-item],
+[data-spatial-shell='true'] [role='group'] > button[data-state] {
+  border-radius: 999px !important;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+}
+[data-spatial-shell='true'] [data-state='on'] {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+  box-shadow: 0 1px 4px -1px hsl(var(--foreground) / 0.15) !important;
+}
+
+/* ---- Buttons: refined hover lift (does not override variants) ---- */
+[data-spatial-shell='true'] button:not([role='tab']):not([role='combobox']):not([data-state]):not([data-radix-toggle-group-item]) {
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, opacity .18s ease;
+}
+[data-spatial-shell='true'] button:not([role='tab']):not([role='combobox']):not([disabled]):hover {
+  transform: translateY(-1px);
+}
+
+/* ---- Headlines: stronger contrast / modern presence ---- */
+[data-spatial-shell='true'] h1,
+[data-spatial-shell='true'] h2,
+[data-spatial-shell='true'] h3 {
+  letter-spacing: -0.015em;
+}
+[data-spatial-shell='true'] h2 { font-weight: 600; }
+[data-spatial-shell='true'] .text-2xl,
+[data-spatial-shell='true'] .text-3xl,
+[data-spatial-shell='true'] .text-4xl {
+  letter-spacing: -0.025em;
+}
+
+/* ---- "Total de Lances" style highlight blocks: premium glass ---- */
+[data-spatial-shell='true'] [class*='bg-primary/5'][class*='border-primary/20'],
+[data-spatial-shell='true'] [class*='bg-primary/8'] {
+  background:
+    linear-gradient(135deg,
+      hsl(var(--primary) / 0.08) 0%,
+      hsl(var(--primary) / 0.03) 60%,
+      hsl(var(--secondary) / 0.05) 100%) !important;
+  border: 1px solid hsl(var(--primary) / 0.22) !important;
+  border-radius: var(--wave12-radius) !important;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.4),
+    0 8px 24px -18px hsl(var(--primary) / 0.5) !important;
+}
+
+/* ---- Select content (popover): modern surface ---- */
+[role='listbox'],
+[data-radix-select-content] {
+  border-radius: var(--wave12-radius) !important;
+  border: 1px solid var(--wave12-hairline-strong) !important;
+  box-shadow:
+    0 1px 0 hsl(var(--background) / 0.5) inset,
+    0 24px 48px -24px hsl(var(--foreground) / 0.4) !important;
+  backdrop-filter: blur(10px) saturate(110%);
+  -webkit-backdrop-filter: blur(10px) saturate(110%);
+}
+
+/* ---- Print / reduced motion safety ---- */
+@media print {
+  [data-spatial-shell='true'] *,
+  [data-signature-shell='true'] * {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-spatial-shell='true'] *:not([role="switch"]):not([role="switch"] *),
+  [data-signature-shell='true'] *:not([role="switch"]):not([role="switch"] *) {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+/* end Wave 12 */
+
+/* ============================================================
+   Wave 13 — Explicit UI Modernization (Simulator)
+   Scope: [data-signature-shell="true"], [data-spatial-shell="true"]
+   Strategy: visible, high-contrast redesign of surfaces, controls,
+   tabs, tables. CSS-only. No JSX/runtime/chunk changes.
+   ============================================================ */
+
+[data-signature-shell="true"],
+[data-spatial-shell="true"] {
+  /* Local design tokens (scoped) */
+  --w13-radius-card: 18px;
+  --w13-radius-control: 12px;
+  --w13-radius-pill: 999px;
+  --w13-stroke: hsl(var(--border) / 0.55);
+  --w13-stroke-strong: hsl(var(--border) / 0.85);
+  --w13-surface-grad: linear-gradient(
+    180deg,
+    hsl(var(--card)) 0%,
+    hsl(var(--card) / 0.86) 60%,
+    hsl(var(--muted) / 0.55) 100%
+  );
+  --w13-surface-grad-hover: linear-gradient(
+    180deg,
+    hsl(var(--card)) 0%,
+    hsl(var(--card) / 0.92) 55%,
+    hsl(var(--primary) / 0.06) 100%
+  );
+  --w13-shadow-soft:
+    0 1px 0 hsl(var(--foreground) / 0.04),
+    0 8px 24px -16px hsl(var(--foreground) / 0.18),
+    0 24px 56px -36px hsl(var(--primary) / 0.18);
+  --w13-shadow-lift:
+    0 1px 0 hsl(var(--foreground) / 0.05),
+    0 14px 32px -18px hsl(var(--foreground) / 0.28),
+    0 36px 80px -42px hsl(var(--primary) / 0.30);
+  --w13-inset-highlight: inset 0 1px 0 hsl(var(--background) / 0.7);
+}
+
+/* ─── 1. Premium architectural cards ─────────────────────────── */
+[data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"],
+[data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"] {
+  border-radius: var(--w13-radius-card) !important;
+  background: var(--w13-surface-grad) !important;
+  border: 1px solid var(--w13-stroke) !important;
+  box-shadow: var(--w13-shadow-soft), var(--w13-inset-highlight) !important;
+  backdrop-filter: blur(8px) saturate(1.05);
+  -webkit-backdrop-filter: blur(8px) saturate(1.05);
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 280ms ease,
+    background 280ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top hairline — signature accent edge */
+[data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]::before,
+[data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.55) 18%,
+    hsl(var(--secondary) / 0.5) 50%,
+    hsl(var(--primary) / 0.45) 82%,
+    transparent 100%
+  );
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]:hover,
+[data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]:hover {
+  transform: translateY(-2px);
+  background: var(--w13-surface-grad-hover) !important;
+  border-color: hsl(var(--primary) / 0.45) !important;
+  box-shadow: var(--w13-shadow-lift), var(--w13-inset-highlight) !important;
+}
+
+/* ─── 2. Modern inputs (clearly redesigned) ─────────────────── */
+[data-signature-shell="true"] input:not([type="checkbox"]):not([type="radio"]):not([role="combobox"]),
+[data-spatial-shell="true"] input:not([type="checkbox"]):not([type="radio"]):not([role="combobox"]),
+[data-signature-shell="true"] textarea,
+[data-spatial-shell="true"] textarea {
+  height: 2.75rem;
+  border-radius: var(--w13-radius-control) !important;
+  border: 1px solid hsl(var(--border) / 0.7) !important;
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted) / 0.45) 100%) !important;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.95),
+    inset 0 -1px 0 hsl(var(--foreground) / 0.04),
+    0 1px 2px hsl(var(--foreground) / 0.04) !important;
+  font-feature-settings: "tnum" 1, "ss01" 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.005em;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease;
+}
+
+[data-signature-shell="true"] input:not([type="checkbox"]):not([type="radio"]):not([role="combobox"]):hover,
+[data-spatial-shell="true"] input:not([type="checkbox"]):not([type="radio"]):not([role="combobox"]):hover {
+  border-color: hsl(var(--primary) / 0.5) !important;
+}
+
+[data-signature-shell="true"] input:not([type="checkbox"]):not([type="radio"]):not([role="combobox"]):focus,
+[data-signature-shell="true"] input:not([type="checkbox"]):not([type="radio"]):not([role="combobox"]):focus-visible,
+[data-spatial-shell="true"] input:not([type="checkbox"]):not([type="radio"]):not([role="combobox"]):focus,
+[data-spatial-shell="true"] input:not([type="checkbox"]):not([type="radio"]):not([role="combobox"]):focus-visible {
+  outline: none !important;
+  border-color: hsl(var(--primary) / 0.75) !important;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.95),
+    0 0 0 4px hsl(var(--primary) / 0.18),
+    0 8px 22px -14px hsl(var(--primary) / 0.45) !important;
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--primary) / 0.04) 100%) !important;
+}
+
+/* ─── 3. Selects / Combobox triggers (premium) ──────────────── */
+[data-signature-shell="true"] [role="combobox"],
+[data-spatial-shell="true"] [role="combobox"],
+[data-signature-shell="true"] button[data-state][aria-haspopup="listbox"],
+[data-spatial-shell="true"] button[data-state][aria-haspopup="listbox"] {
+  height: 2.75rem !important;
+  border-radius: var(--w13-radius-control) !important;
+  border: 1px solid hsl(var(--border) / 0.7) !important;
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted) / 0.5) 100%) !important;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.9),
+    0 1px 2px hsl(var(--foreground) / 0.04) !important;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  transition: all 200ms ease;
+}
+
+[data-signature-shell="true"] [role="combobox"]:hover,
+[data-spatial-shell="true"] [role="combobox"]:hover {
+  border-color: hsl(var(--primary) / 0.55) !important;
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--primary) / 0.05) 100%) !important;
+}
+
+/* ─── 4. Tabs — modern pill navigation ──────────────────────── */
+[data-signature-shell="true"] [role="tablist"],
+[data-spatial-shell="true"] [role="tablist"] {
+  background:
+    linear-gradient(180deg,
+      hsl(var(--muted) / 0.6) 0%,
+      hsl(var(--muted) / 0.85) 100%) !important;
+  border: 1px solid hsl(var(--border) / 0.5) !important;
+  border-radius: var(--w13-radius-pill) !important;
+  padding: 0.3rem !important;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.7),
+    0 1px 2px hsl(var(--foreground) / 0.04);
+  gap: 0.15rem;
+}
+
+[data-signature-shell="true"] [role="tab"],
+[data-spatial-shell="true"] [role="tab"] {
+  border-radius: var(--w13-radius-pill) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.005em;
+  transition: all 220ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  position: relative;
+}
+
+[data-signature-shell="true"] [role="tab"][data-state="active"],
+[data-spatial-shell="true"] [role="tab"][data-state="active"] {
+  background:
+    linear-gradient(180deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--primary) / 0.88) 100%) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  box-shadow:
+    0 1px 0 hsl(var(--background) / 0.6) inset,
+    0 6px 18px -8px hsl(var(--primary) / 0.55),
+    0 2px 6px -2px hsl(var(--primary) / 0.35) !important;
+  transform: translateY(-0.5px);
+}
+
+/* ─── 5. Tables — editorial premium ─────────────────────────── */
+[data-signature-shell="true"] table,
+[data-spatial-shell="true"] table {
+  border-collapse: separate !important;
+  border-spacing: 0;
+}
+
+[data-signature-shell="true"] table thead th,
+[data-spatial-shell="true"] table thead th {
+  background:
+    linear-gradient(180deg,
+      hsl(var(--muted) / 0.7) 0%,
+      hsl(var(--muted) / 0.45) 100%) !important;
+  text-transform: uppercase;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 600 !important;
+  color: hsl(var(--muted-foreground)) !important;
+  border-bottom: 1px solid hsl(var(--border) / 0.7) !important;
+  padding-top: 0.85rem !important;
+  padding-bottom: 0.85rem !important;
+}
+
+[data-signature-shell="true"] table tbody tr,
+[data-spatial-shell="true"] table tbody tr {
+  transition: background 180ms ease;
+}
+
+[data-signature-shell="true"] table tbody tr:hover,
+[data-spatial-shell="true"] table tbody tr:hover {
+  background: hsl(var(--primary) / 0.04) !important;
+}
+
+[data-signature-shell="true"] table tbody td,
+[data-spatial-shell="true"] table tbody td {
+  font-variant-numeric: tabular-nums;
+  border-bottom: 1px solid hsl(var(--border) / 0.35) !important;
+}
+
+/* ─── 6. Buttons — premium lift ─────────────────────────────── */
+[data-signature-shell="true"] button:not([role="tab"]):not([role="combobox"]):not([aria-haspopup="listbox"]),
+[data-spatial-shell="true"] button:not([role="tab"]):not([role="combobox"]):not([aria-haspopup="listbox"]) {
+  letter-spacing: -0.005em;
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+[data-signature-shell="true"] button:not([role="tab"]):not([role="combobox"]):not([aria-haspopup="listbox"]):hover,
+[data-spatial-shell="true"] button:not([role="tab"]):not([role="combobox"]):not([aria-haspopup="listbox"]):hover {
+  transform: translateY(-1px);
+}
+
+/* ─── 7. Headings — contemporary presence ───────────────────── */
+[data-signature-shell="true"] h1,
+[data-signature-shell="true"] h2,
+[data-signature-shell="true"] h3,
+[data-spatial-shell="true"] h1,
+[data-spatial-shell="true"] h2,
+[data-spatial-shell="true"] h3 {
+  letter-spacing: -0.022em;
+  font-feature-settings: "ss01" 1, "cv11" 1;
+}
+
+/* ─── 8. Print + reduced-motion safety ──────────────────────── */
+@media print {
+  [data-signature-shell="true"] *,
+  [data-spatial-shell="true"] * {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    background-image: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-signature-shell="true"] *:not([role="switch"]):not([role="switch"] *),
+  [data-spatial-shell="true"] *:not([role="switch"]):not([role="switch"] *) {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+/* end Wave 13 */
+
+/* ============================================================
+   Wave 14 — Platform-Wide Contemporary UI Modernization
+   Scope: global presentation layer.
+   Strategy: extend Wave 13's modern visual language to ALL
+   modules, preserving institutional sidebar, bottom nav, PDF
+   off-screen templates, popovers, dialogs, dropdowns and toasts.
+   100% CSS-only. No JSX/runtime/chunk graph changes.
+   ============================================================ */
+
+:root {
+  --w14-radius-card: 16px;
+  --w14-radius-control: 11px;
+  --w14-radius-pill: 999px;
+  --w14-stroke: hsl(var(--border) / 0.55);
+  --w14-surface-grad: linear-gradient(
+    180deg,
+    hsl(var(--card)) 0%,
+    hsl(var(--card) / 0.88) 60%,
+    hsl(var(--muted) / 0.5) 100%
+  );
+  --w14-surface-grad-hover: linear-gradient(
+    180deg,
+    hsl(var(--card)) 0%,
+    hsl(var(--card) / 0.94) 55%,
+    hsl(var(--primary) / 0.05) 100%
+  );
+  --w14-shadow-soft:
+    0 1px 0 hsl(var(--foreground) / 0.04),
+    0 6px 20px -14px hsl(var(--foreground) / 0.16),
+    0 22px 50px -36px hsl(var(--primary) / 0.16);
+  --w14-shadow-lift:
+    0 1px 0 hsl(var(--foreground) / 0.05),
+    0 12px 28px -16px hsl(var(--foreground) / 0.24),
+    0 32px 70px -42px hsl(var(--primary) / 0.26);
+  --w14-inset-highlight: inset 0 1px 0 hsl(var(--background) / 0.7);
+}
+
+/* ─── Safety rails: skip these contexts entirely ───────────────
+   (sidebar / bottom-nav / PDF / dialogs / popovers / dropdowns /
+    tooltips / toasts already have their own styling)  */
+
+/* ─── 1. Cards platform-wide ───────────────────────────────── */
+body
+  :where(main, [role="main"])
+  :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  border-radius: var(--w14-radius-card);
+  background: var(--w14-surface-grad);
+  border: 1px solid var(--w14-stroke);
+  box-shadow: var(--w14-shadow-soft), var(--w14-inset-highlight);
+  backdrop-filter: blur(6px) saturate(1.04);
+  -webkit-backdrop-filter: blur(6px) saturate(1.04);
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 260ms ease,
+    background 260ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+body
+  :where(main, [role="main"])
+  :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *)::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.45) 20%,
+    hsl(var(--secondary) / 0.4) 50%,
+    hsl(var(--primary) / 0.4) 80%,
+    transparent 100%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body
+  :where(main, [role="main"])
+  :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *):hover {
+  transform: translateY(-1.5px);
+  background: var(--w14-surface-grad-hover);
+  border-color: hsl(var(--primary) / 0.4);
+  box-shadow: var(--w14-shadow-lift), var(--w14-inset-highlight);
+}
+
+/* ─── 2. Inputs platform-wide ──────────────────────────────── */
+body
+  :where(main, [role="main"])
+  :where(input):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([role="combobox"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *),
+body
+  :where(main, [role="main"])
+  :where(textarea):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  border-radius: var(--w14-radius-control);
+  border: 1px solid hsl(var(--border) / 0.7);
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted) / 0.4) 100%);
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.95),
+    inset 0 -1px 0 hsl(var(--foreground) / 0.03),
+    0 1px 2px hsl(var(--foreground) / 0.03);
+  font-feature-settings: "tnum" 1, "ss01" 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.005em;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease;
+}
+
+body
+  :where(main, [role="main"])
+  :where(input):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([role="combobox"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *):hover,
+body
+  :where(main, [role="main"])
+  :where(textarea):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *):hover {
+  border-color: hsl(var(--primary) / 0.45);
+}
+
+body
+  :where(main, [role="main"])
+  :where(input):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([role="combobox"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *):focus,
+body
+  :where(main, [role="main"])
+  :where(input):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([role="combobox"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *):focus-visible,
+body
+  :where(main, [role="main"])
+  :where(textarea):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *):focus,
+body
+  :where(main, [role="main"])
+  :where(textarea):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *):focus-visible {
+  outline: none;
+  border-color: hsl(var(--primary) / 0.7);
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.95),
+    0 0 0 4px hsl(var(--primary) / 0.16),
+    0 6px 18px -12px hsl(var(--primary) / 0.4);
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--primary) / 0.04) 100%);
+}
+
+/* ─── 3. Selects / Combobox triggers ───────────────────────── */
+body
+  :where(main, [role="main"])
+  :where([role="combobox"], button[aria-haspopup="listbox"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  border-radius: var(--w14-radius-control);
+  border: 1px solid hsl(var(--border) / 0.7);
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted) / 0.45) 100%);
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.9),
+    0 1px 2px hsl(var(--foreground) / 0.03);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  transition: all 200ms ease;
+}
+
+body
+  :where(main, [role="main"])
+  :where([role="combobox"], button[aria-haspopup="listbox"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *):hover {
+  border-color: hsl(var(--primary) / 0.5);
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--primary) / 0.05) 100%);
+}
+
+/* ─── 4. Tabs platform-wide ────────────────────────────────── */
+body
+  :where(main, [role="main"])
+  :where([role="tablist"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  background:
+    linear-gradient(180deg,
+      hsl(var(--muted) / 0.55) 0%,
+      hsl(var(--muted) / 0.8) 100%);
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: var(--w14-radius-pill);
+  padding: 0.28rem;
+  box-shadow:
+    inset 0 1px 0 hsl(var(--background) / 0.7),
+    0 1px 2px hsl(var(--foreground) / 0.03);
+  gap: 0.15rem;
+}
+
+body
+  :where(main, [role="main"])
+  :where([role="tab"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  border-radius: var(--w14-radius-pill);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  transition: all 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body
+  :where(main, [role="main"])
+  :where([role="tab"][data-state="active"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  background:
+    linear-gradient(180deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--primary) / 0.88) 100%);
+  color: hsl(var(--primary-foreground));
+  box-shadow:
+    0 1px 0 hsl(var(--background) / 0.6) inset,
+    0 6px 16px -8px hsl(var(--primary) / 0.5),
+    0 2px 6px -2px hsl(var(--primary) / 0.3);
+}
+
+/* ─── 5. Tables platform-wide ──────────────────────────────── */
+body
+  :where(main, [role="main"])
+  table:not([data-signature-shell] table):not([data-spatial-shell] table):not(aside table):not(nav table):not([role="dialog"] table):not([data-pdf-content] table) {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+body
+  :where(main, [role="main"])
+  table:not([data-signature-shell] table):not([data-spatial-shell] table):not(aside table):not(nav table):not([role="dialog"] table):not([data-pdf-content] table)
+  thead th {
+  background:
+    linear-gradient(180deg,
+      hsl(var(--muted) / 0.7) 0%,
+      hsl(var(--muted) / 0.45) 100%);
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  border-bottom: 1px solid hsl(var(--border) / 0.7);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+body
+  :where(main, [role="main"])
+  table:not([data-signature-shell] table):not([data-spatial-shell] table):not(aside table):not(nav table):not([role="dialog"] table):not([data-pdf-content] table)
+  tbody tr {
+  transition: background 180ms ease;
+}
+
+body
+  :where(main, [role="main"])
+  table:not([data-signature-shell] table):not([data-spatial-shell] table):not(aside table):not(nav table):not([role="dialog"] table):not([data-pdf-content] table)
+  tbody tr:hover {
+  background: hsl(var(--primary) / 0.04);
+}
+
+body
+  :where(main, [role="main"])
+  table:not([data-signature-shell] table):not([data-spatial-shell] table):not(aside table):not(nav table):not([role="dialog"] table):not([data-pdf-content] table)
+  tbody td {
+  font-variant-numeric: tabular-nums;
+  border-bottom: 1px solid hsl(var(--border) / 0.32);
+}
+
+/* ─── 6. Headlines — contemporary presence ─────────────────── */
+body
+  :where(main, [role="main"])
+  :where(h1, h2, h3):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *) {
+  letter-spacing: -0.02em;
+  font-feature-settings: "ss01" 1, "cv11" 1;
+}
+
+/* ─── 7. Print + reduced-motion safety ─────────────────────── */
+@media print {
+  body :where(main, [role="main"]) * {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    background-image: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body :where(main, [role="main"]) *:not([role="switch"]):not([role="switch"] *) {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+/* end Wave 14 */
+
+/* ============================================================
+   Wave 15 — Cinematic Landing Redesign
+   Scope: .bg-landing-bg root wrapper (LandingPage.tsx)
+   Strategy: cinematic art direction layered on top of the
+   existing editorial structure — aurora glows, premium
+   hairlines, display typography, glass surfaces, gold ember.
+   100% CSS additive. Zero JSX/runtime/chunk changes.
+   ============================================================ */
+
+:where(.bg-landing-bg) {
+  --w15-gold: hsl(var(--landing-gold));
+  --w15-gold-soft: hsl(var(--landing-gold) / 0.5);
+  --w15-stroke: hsl(var(--landing-border));
+  --w15-display-tracking: -0.028em;
+}
+
+/* ─── 1. Cinematic dark sections (aurora + ember + grain) ──── */
+:where(.bg-landing-bg) :where(section, div).bg-gradient-to-br {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+:where(.bg-landing-bg) :where(section, div).bg-gradient-to-br::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(60% 50% at 18% 22%,
+      hsl(var(--landing-gold) / 0.18) 0%,
+      transparent 60%),
+    radial-gradient(45% 55% at 88% 78%,
+      hsl(220 80% 55% / 0.16) 0%,
+      transparent 65%),
+    radial-gradient(35% 40% at 50% 100%,
+      hsl(var(--landing-gold) / 0.10) 0%,
+      transparent 70%);
+  filter: blur(30px) saturate(1.1);
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+/* Subtle film grain via SVG noise data-uri */
+:where(.bg-landing-bg) :where(section, div).bg-gradient-to-br::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.85 0 0 0 0 0.55 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ─── 2. Top hairline ember on dark cinematic sections ──────── */
+:where(.bg-landing-bg) :where(section, div).bg-gradient-to-br {
+  border-top: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+:where(.bg-landing-bg) :where(section).bg-gradient-to-br > *:first-child::before,
+:where(.bg-landing-bg) :where(div).bg-gradient-to-br > *:first-child::before {
+  /* no-op: placeholder to keep selector specificity */
+}
+
+/* ─── 3. Display typography — premium editorial presence ───── */
+:where(.bg-landing-bg) h1 {
+  letter-spacing: var(--w15-display-tracking);
+  font-feature-settings: "ss01" 1, "cv11" 1, "kern" 1;
+  text-wrap: balance;
+}
+
+:where(.bg-landing-bg) h2 {
+  letter-spacing: -0.022em;
+  font-feature-settings: "ss01" 1, "kern" 1;
+  text-wrap: balance;
+}
+
+:where(.bg-landing-bg) h3 {
+  letter-spacing: -0.018em;
+}
+
+/* ─── 4. Gold accents — refined ember treatment ─────────────── */
+:where(.bg-landing-bg) .text-landing-gold {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--landing-gold)) 0%,
+    hsl(var(--landing-gold) / 0.7) 50%,
+    hsl(var(--landing-gold)) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 12px hsl(var(--landing-gold) / 0.25));
+}
+
+/* preserve gold for icons/borders that aren't text-only */
+:where(.bg-landing-bg) svg.text-landing-gold,
+:where(.bg-landing-bg) .text-landing-gold > svg {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  filter: drop-shadow(0 0 18px hsl(var(--landing-gold) / 0.35));
+}
+
+/* ─── 5. CTA button — premium glow + lift ──────────────────── */
+:where(.bg-landing-bg) button:where([class*="bg-landing-gold"], [class*="from-landing-gold"]) {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--landing-gold)) 0%,
+    hsl(var(--landing-gold) / 0.92) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 hsl(0 0% 100% / 0.35),
+    0 1px 2px hsl(var(--landing-gold) / 0.3),
+    0 14px 30px -10px hsl(var(--landing-gold) / 0.45),
+    0 28px 60px -22px hsl(var(--landing-gold) / 0.35);
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 280ms ease,
+    filter 280ms ease;
+  letter-spacing: -0.005em;
+}
+
+:where(.bg-landing-bg) button:where([class*="bg-landing-gold"], [class*="from-landing-gold"]):hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 hsl(0 0% 100% / 0.4),
+    0 2px 4px hsl(var(--landing-gold) / 0.4),
+    0 18px 36px -10px hsl(var(--landing-gold) / 0.55),
+    0 36px 70px -22px hsl(var(--landing-gold) / 0.45);
+  filter: brightness(1.04);
+}
+
+/* ─── 6. Glass surfaces for any landing card ──────────────── */
+:where(.bg-landing-bg) :where(.bg-white, [class*="bg-landing-light"], [class*="bg-card"]):where([class*="rounded"]):where([class*="border"], [class*="shadow"]) {
+  border-radius: 18px;
+  border: 1px solid hsl(var(--landing-border));
+  background:
+    linear-gradient(180deg,
+      hsl(0 0% 100%) 0%,
+      hsl(var(--landing-light)) 100%);
+  box-shadow:
+    inset 0 1px 0 hsl(0 0% 100%),
+    0 1px 0 hsl(var(--landing-border) / 0.6),
+    0 10px 28px -18px hsl(222 35% 16% / 0.18),
+    0 28px 60px -32px hsl(222 35% 16% / 0.16);
+  backdrop-filter: blur(8px) saturate(1.05);
+  -webkit-backdrop-filter: blur(8px) saturate(1.05);
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms ease,
+    border-color 320ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+:where(.bg-landing-bg) :where(.bg-white, [class*="bg-landing-light"], [class*="bg-card"]):where([class*="rounded"]):where([class*="border"], [class*="shadow"])::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--landing-gold) / 0.55) 30%,
+    hsl(var(--landing-gold) / 0.55) 70%,
+    transparent 100%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+:where(.bg-landing-bg) :where(.bg-white, [class*="bg-landing-light"], [class*="bg-card"]):where([class*="rounded"]):where([class*="border"], [class*="shadow"]):hover {
+  transform: translateY(-3px);
+  border-color: hsl(var(--landing-gold) / 0.4);
+  box-shadow:
+    inset 0 1px 0 hsl(0 0% 100%),
+    0 1px 0 hsl(var(--landing-gold) / 0.35),
+    0 18px 36px -18px hsl(222 35% 16% / 0.25),
+    0 40px 80px -32px hsl(var(--landing-gold) / 0.22);
+}
+
+/* ─── 7. Editorial dividers — refined hairline ─────────────── */
+:where(.bg-landing-bg) .border-landing-border,
+:where(.bg-landing-bg) .divide-landing-border > * + * {
+  border-color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(var(--landing-border)) 12%,
+    hsl(var(--landing-border)) 88%,
+    transparent 100%
+  );
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+/* ─── 8. Stat badges — display tabular ────────────────────── */
+:where(.bg-landing-bg) .tabular-nums {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1, "ss01" 1;
+  letter-spacing: -0.01em;
+}
+
+/* ─── 9. Section breathing — cinematic rhythm ──────────────── */
+:where(.bg-landing-bg) section {
+  position: relative;
+}
+
+/* ─── 10. Print + reduced-motion safety ───────────────────── */
+@media print {
+  :where(.bg-landing-bg) * {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  :where(.bg-landing-bg) :where(section, div).bg-gradient-to-br::before,
+  :where(.bg-landing-bg) :where(section, div).bg-gradient-to-br::after {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.bg-landing-bg) *:not([role="switch"]):not([role="switch"] *) {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+/* end Wave 15 */
+
+/* =====================================================================
+ * WAVE 16 — Premium Layout Density Calibration (Simulator)
+ * Pure presentation/spacing layer. Recalibra densidade, escala do hero,
+ * proporção de inputs, ritmo vertical e quebras responsivas.
+ * Escopo: [data-signature-shell="true"] (Simulator).
+ * ZERO alteração em JSX, runtime, lógica financeira, vite.config,
+ * manualChunks, providers ou chunk graph.
+ * ===================================================================== */
+
+/* ── 1. Stage hero: ativa o grid assimétrico já em ≥1100px (era 1280)
+ *    Eliminamos o "vazio do meio" no viewport ~1261px (corrente do user). */
+@media (min-width: 1100px) and (max-width: 1279.98px) {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] {
+    display: grid !important;
+    /* Resultado dominante neste bracket (laptops ~1100–1279px) */
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.35fr) !important;
+    column-gap: 1.75rem;
+    align-items: stretch;
+  }
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='hero'] {
+    order: 1;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+  }
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='console'] {
+    order: 2;
+    position: sticky;
+    top: 0.75rem;
+    align-self: start;
+  }
+}
+
+/* ── 2. Hero: protagonismo real — escala vertical e densidade reforçadas */
+@media (min-width: 1024px) {
+  [data-signature-shell='true'] [data-cockpit-hero='true'] {
+    padding: 1.75rem 1.875rem !important;
+    min-height: 460px;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true'] .editorial-headline {
+    font-size: clamp(1.75rem, 2.25vw, 2.35rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.028em !important;
+  }
+  /* Métrica primária — número dominante */
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary']
+    .metric-cell-value {
+    font-size: clamp(2.6rem, 3.6vw, 3.4rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.035em !important;
+  }
+  /* Métricas secundárias — presença adequada (sem miniaturizar) */
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary'])
+    .metric-cell-value {
+    font-size: clamp(1.25rem, 1.45vw, 1.5rem) !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* ── 3. Inputs / selects: escala premium coerente com hero
+ *    (eram h-10 ≈ 40px → agora 44px; controles ganham presença sem inflar) */
+[data-signature-shell='true'] input:not([type='checkbox']):not([type='radio']):not([type='range']),
+[data-signature-shell='true'] select,
+[data-signature-shell='true'] [role='combobox'],
+[data-signature-shell='true'] button[role='combobox'] {
+  height: 2.75rem !important;
+  font-size: 0.95rem !important;
+  padding-left: 0.875rem !important;
+  padding-right: 0.875rem !important;
+}
+/* Toggle group (R$/%) acompanha a escala */
+[data-signature-shell='true'] [role='group'] > button,
+[data-signature-shell='true'] [data-state] > button[data-state] {
+  min-height: 2.5rem;
+}
+/* Labels editoriais ganham peso visual coerente */
+[data-signature-shell='true'] label {
+  font-size: 0.7rem !important;
+  letter-spacing: 0.085em !important;
+}
+
+/* ── 4. Ritmo vertical: redução de ~28% nos gaps entre chapters
+ *    Mantém respiro mas elimina o efeito "espalhado". */
+[data-spatial-shell='true'] > [data-signature-chapter] + [data-signature-chapter],
+[data-spatial-shell='true'] > [data-spatial-zone] + [data-spatial-zone],
+[data-spatial-shell='true'] > [data-signature-chapter] + [data-spatial-zone],
+[data-spatial-shell='true'] > [data-spatial-zone] + [data-signature-chapter] {
+  margin-top: 1.25rem !important;
+}
+@media (min-width: 1024px) {
+  [data-spatial-shell='true'] > [data-signature-chapter] + [data-signature-chapter],
+  [data-spatial-shell='true'] > [data-spatial-zone] + [data-spatial-zone],
+  [data-spatial-shell='true'] > [data-signature-chapter] + [data-spatial-zone],
+  [data-spatial-shell='true'] > [data-spatial-zone] + [data-signature-chapter] {
+    margin-top: 1.75rem !important;
+  }
+}
+
+/* ── 5. Strip 02 (Estratégia de Lance): reduz padding interno excessivo */
+[data-spatial-shell='true'] [data-spatial-zone='strip'] {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 0.875rem;
+}
+@media (min-width: 1024px) {
+  [data-spatial-shell='true'] [data-spatial-zone='strip'] {
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* ── 6. Board 03 (Pós-contemplação + Atuarial): gap mais denso */
+@media (min-width: 1024px) {
+  [data-spatial-board-grid] {
+    gap: 1rem 1.25rem !important;
+  }
+  /* Cell 'full' (Evolução do Saldo / chart): protagonismo de painel */
+  [data-spatial-board-grid] [data-spatial-board-cell='full'] {
+    padding-top: 0.875rem !important;
+    margin-top: 0.5rem !important;
+  }
+  [data-spatial-board-grid] [data-spatial-board-cell='full'] [class*='recharts'],
+  [data-spatial-board-grid] [data-spatial-board-cell='full'] svg.recharts-surface {
+    min-height: 320px;
+  }
+}
+
+/* ── 7. Chapter 04 (analytical / composição + distribuição): densifica */
+[data-spatial-shell='true'] [data-spatial-zone='analytical'] {
+  padding: 1.125rem 0.875rem;
+}
+@media (min-width: 1024px) {
+  [data-spatial-shell='true'] [data-spatial-zone='analytical'] {
+    padding: 1.5rem 1.5rem;
+  }
+}
+[data-spatial-shell='true'] [data-spatial-zone='analytical'] > div > * + *,
+[data-spatial-shell='true'] [data-spatial-zone='conversion'] > * + * {
+  margin-top: 0.75rem !important;
+}
+
+/* ── 8. Chapter 06 (conversion): padding mais contido */
+@media (min-width: 1024px) {
+  [data-spatial-shell='true'] [data-spatial-zone='conversion'] {
+    padding: 1.375rem 1.5rem 1.25rem;
+  }
+}
+
+/* ── 9. Card de parâmetros (console): elimina padding-left dramático
+ *    que criava sensação de "rail" desconectado em telas médias. */
+@media (min-width: 1100px) and (max-width: 1279.98px) {
+  [data-spatial-shell='true'] [data-spatial-zone='console'] [data-slot='card'],
+  [data-spatial-shell='true'] [data-spatial-zone='console'] > div > [class*='rounded-lg'] {
+    padding-left: 0.875rem !important;
+  }
+}
+
+/* ── 10. Cards arquiteturais: lift hover mais sutil + densificação interna */
+[data-signature-shell='true'] [data-slot='card'] > [data-slot='card-content'],
+[data-signature-shell='true'] [data-slot='card'] > .p-6 {
+  padding: 1.125rem !important;
+}
+@media (min-width: 1024px) {
+  [data-signature-shell='true'] [data-slot='card'] > [data-slot='card-content'],
+  [data-signature-shell='true'] [data-slot='card'] > .p-6 {
+    padding: 1.375rem 1.5rem !important;
+  }
+}
+
+/* ── 11. Section/disclaimer: reduz altura quando solto */
+[data-spatial-shell='true'] [data-spatial-zone='contextual'] {
+  padding: 0.25rem 0;
+}
+
+/* Print: zera calibração para não interferir em A4 */
+@media print {
+  [data-signature-shell='true'] [data-cockpit-hero='true'],
+  [data-signature-shell='true'] input,
+  [data-signature-shell='true'] select,
+  [data-signature-shell='true'] [data-slot='card'] > [data-slot='card-content'] {
+    padding: 0.5rem !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-signature-shell='true'] [data-cockpit-hero='true'] { transition: none !important; }
+}
+/* end Wave 16 */
+
+/* =====================================================================
+ * Wave 17 — Adaptive Premium Viewport Calibration (CSS-only, additive)
+ * ---------------------------------------------------------------------
+ * Objetivo: tornar o Simulador realmente adaptativo para desktops
+ * largos (≥1440), wide-screen (≥1680) e ultrawide (≥1920). Preserva
+ * 100% das Waves 10–16 (glass, materialidade, hero dominance, ritmo).
+ * Escopo: apenas grid/spacing/scale dentro de [data-signature-shell="true"]
+ * e [data-spatial-shell="true"]. Zero JSX, runtime, lógica financeira,
+ * vite.config, manualChunks, providers, chunk graph.
+ * ===================================================================== */
+
+/* ── 1. Stage hero ≥1440px — laptop premium / desktop padrão moderno
+ *    Hero ganha mais peso e respiro; console permanece sticky/slim. */
+@media (min-width: 1440px) {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.95fr) !important;
+    column-gap: 2.5rem !important;
+  }
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='hero'] {
+    min-height: 500px !important;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true'] {
+    padding: 2rem 2.25rem !important;
+    min-height: 500px;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true'] .editorial-headline {
+    font-size: clamp(2rem, 2.4vw, 2.55rem) !important;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary']
+    .metric-cell-value {
+    font-size: clamp(3rem, 3.8vw, 3.7rem) !important;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary'])
+    .metric-cell-value {
+    font-size: clamp(1.4rem, 1.55vw, 1.65rem) !important;
+  }
+}
+
+/* ── 2. Stage hero ≥1680px — wide-screen / executive desktop
+ *    Composição mais arejada, hero dominante real, console sticky enxuto. */
+@media (min-width: 1680px) {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] {
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.9fr) !important;
+    column-gap: 2.75rem !important;
+  }
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='hero'] {
+    min-height: 540px !important;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true'] {
+    padding: 2.25rem 2.5rem !important;
+    min-height: 540px;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true'] .editorial-headline {
+    font-size: clamp(2.2rem, 2.5vw, 2.75rem) !important;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary']
+    .metric-cell-value {
+    font-size: clamp(3.4rem, 4vw, 4rem) !important;
+  }
+}
+
+/* ── 3. Stage hero ≥1920px — ultrawide / 4K workstation
+ *    Limite suave de leitura no shell para evitar linhas excessivamente
+ *    longas em ultrawide (sem comprimir: cap generoso, conteúdo centrado). */
+@media (min-width: 1920px) {
+  [data-signature-shell='true'][data-signature-shell] {
+    max-width: 1880px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.9fr) !important;
+    column-gap: 3rem !important;
+  }
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='hero'] {
+    min-height: 580px !important;
+  }
+  [data-signature-shell='true'] [data-cockpit-hero='true'] {
+    padding: 2.5rem 2.75rem !important;
+    min-height: 580px;
+  }
+}
+
+/* ── 4. Strip 02 (Estratégia de Lance) — respiro proporcional em wide
+ *    Mantém densidade premium sem voltar ao layout "espalhado". */
+@media (min-width: 1440px) {
+  [data-spatial-shell='true'] [data-spatial-zone='strip'] {
+    padding: 1.5rem 2rem !important;
+  }
+}
+@media (min-width: 1680px) {
+  [data-spatial-shell='true'] [data-spatial-zone='strip'] {
+    padding: 1.75rem 2.5rem !important;
+  }
+}
+
+/* ── 5. Board 03 (Pós-contemplação + Atuarial) — chart cresce com viewport */
+@media (min-width: 1440px) {
+  [data-spatial-board-grid] {
+    gap: 1.25rem 1.5rem !important;
+  }
+  [data-spatial-board-grid] [data-spatial-board-cell='full'] [class*='recharts'],
+  [data-spatial-board-grid] [data-spatial-board-cell='full'] svg.recharts-surface {
+    min-height: 360px !important;
+  }
+}
+@media (min-width: 1680px) {
+  [data-spatial-board-grid] {
+    gap: 1.5rem 1.75rem !important;
+  }
+  [data-spatial-board-grid] [data-spatial-board-cell='full'] [class*='recharts'],
+  [data-spatial-board-grid] [data-spatial-board-cell='full'] svg.recharts-surface {
+    min-height: 400px !important;
+  }
+}
+
+/* ── 6. Chapter 04 (analytical) — padding proporcional ao viewport */
+@media (min-width: 1440px) {
+  [data-spatial-shell='true'] [data-spatial-zone='analytical'] {
+    padding: 1.75rem 2rem !important;
+  }
+}
+@media (min-width: 1680px) {
+  [data-spatial-shell='true'] [data-spatial-zone='analytical'] {
+    padding: 2rem 2.5rem !important;
+  }
+}
+
+/* ── 7. Chapter 06 (conversion) — respiro coerente em wide */
+@media (min-width: 1440px) {
+  [data-spatial-shell='true'] [data-spatial-zone='conversion'] {
+    padding: 1.625rem 2rem 1.5rem !important;
+  }
+}
+
+/* ── 8. Cards arquiteturais — padding interno escala com viewport
+ *    Densidade premium preservada: incremento mínimo em cada bracket. */
+@media (min-width: 1440px) {
+  [data-signature-shell='true'] [data-slot='card'] > [data-slot='card-content'],
+  [data-signature-shell='true'] [data-slot='card'] > .p-6 {
+    padding: 1.5rem 1.75rem !important;
+  }
+}
+@media (min-width: 1680px) {
+  [data-signature-shell='true'] [data-slot='card'] > [data-slot='card-content'],
+  [data-signature-shell='true'] [data-slot='card'] > .p-6 {
+    padding: 1.625rem 2rem !important;
+  }
+}
+
+/* ── 9. Ritmo vertical entre chapters — leve aumento em wide para
+ *    dar pausa cinematográfica sem fragmentar o flow. */
+@media (min-width: 1440px) {
+  [data-spatial-shell='true'] > [data-signature-chapter] + [data-signature-chapter],
+  [data-spatial-shell='true'] > [data-spatial-zone] + [data-spatial-zone],
+  [data-spatial-shell='true'] > [data-signature-chapter] + [data-spatial-zone],
+  [data-spatial-shell='true'] > [data-spatial-zone] + [data-signature-chapter] {
+    margin-top: 2rem !important;
+  }
+}
+@media (min-width: 1680px) {
+  [data-spatial-shell='true'] > [data-signature-chapter] + [data-signature-chapter],
+  [data-spatial-shell='true'] > [data-spatial-zone] + [data-spatial-zone],
+  [data-spatial-shell='true'] > [data-signature-chapter] + [data-spatial-zone],
+  [data-spatial-shell='true'] > [data-spatial-zone] + [data-signature-chapter] {
+    margin-top: 2.25rem !important;
+  }
+}
+
+/* ── 10. Print / reduced motion — neutralizam Wave 17 sem afetar A4 */
+@media print {
+  [data-signature-shell='true'][data-signature-shell] {
+    max-width: none !important;
+    margin: 0 !important;
+  }
+}
+/* =====================================================================
+ * Wave 18 — True Desktop Stage Architecture Fix (Simulator)
+ * ---------------------------------------------------------------------
+ * Corrige a causa estrutural do stack prematuro: o marker editorial
+ * `::before` de [data-signature-chapter] participava como grid item,
+ * ocupava a primeira célula do stage e empurrava o formulário para a
+ * linha seguinte. Esta camada força o eyebrow a atravessar o grid inteiro
+ * e redefine a composição desktop como formulário dominante + cockpit.
+ * Escopo: layout/CSS estrutural apenas. Zero lógica, runtime ou chunks.
+ * ===================================================================== */
+
+@media (min-width: 1100px) {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'][data-signature-chapter] {
+    display: grid !important;
+    /* Wave 35: Resultado é o protagonista; formulário ocupa apenas o necessário. */
+    grid-template-columns: minmax(400px, 1.05fr) minmax(520px, 1.4fr) !important;
+    gap: 0.75rem 1.75rem !important;
+    align-items: start;
+  }
+
+  [data-spatial-shell='true'] [data-spatial-stage='hero'][data-signature-chapter]::before {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='console'] {
+    grid-column: 1;
+    grid-row: 2;
+    order: 1 !important;
+    position: static !important;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
+  }
+
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='hero'] {
+    grid-column: 2;
+    grid-row: 2;
+    order: 2 !important;
+    align-self: stretch;
+    width: 100%;
+    min-width: 0;
+    min-height: 420px !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'][data-signature-chapter] {
+    grid-template-columns: minmax(420px, 1fr) minmax(620px, 1.45fr) !important;
+    column-gap: 2.25rem !important;
+  }
+}
+
+@media (min-width: 1680px) {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'][data-signature-chapter] {
+    grid-template-columns: minmax(440px, 0.95fr) minmax(700px, 1.5fr) !important;
+    column-gap: 2.75rem !important;
+  }
+}
+
+@media print {
+  [data-spatial-shell='true'] [data-spatial-stage='hero'][data-signature-chapter]::before,
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='console'],
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] > [data-spatial-zone='hero'] {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+/* end Wave 18 */
+
+/* ============================================================================
+ * Wave 19 — Editorial Composition & Width Architecture (Simulator)
+ * ----------------------------------------------------------------------------
+ * 100% CSS-only. Sem alterações em JSX, runtime, lógica financeira, vite.config
+ * ou chunk graph. Aplica um sistema editorial de larguras por chapter para
+ * eliminar a sensação de "stack uniforme" e introduzir rhythm lateral premium.
+ *
+ * Escopo: somente [data-spatial-shell='true'] (shell do Simulador).
+ * Estratégia:
+ *   • Hero stage  → wide      (estágio dominante full-width do shell)
+ *   • Strip       → focus     (~860px centralizado, painel focado)
+ *   • Board       → wide      (composição editorial 12-col, full)
+ *   • Analytical  → medium    (~1080px, leitura confortável)
+ *   • Contextual  → narrow    (~720px, disclaimers contidos)
+ *   • Conversion  → medium    (~1080px, CTAs centralizadas)
+ *
+ * Resultado: alternância wide → focus → wide → medium → narrow → medium
+ * cria flow cinematográfico dirigido em vez de empilhamento monótono.
+ * ============================================================================
+ */
+
+@media (min-width: 1100px) {
+  /* Hero stage permanece full do shell (já governado por Wave 18) */
+  [data-spatial-shell='true'] [data-spatial-stage='hero'] {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  /* Strip — Estratégia de Lance: painel operacional focado */
+  [data-spatial-shell='true'] > [data-spatial-zone='strip'] {
+    max-width: 880px;
+    margin-inline: auto;
+  }
+
+  /* Board — Pós-Contemplação: container editorial centralizado, mesma
+     largura do analytical/conversion para continuidade arquitetural */
+  [data-spatial-shell='true'] > [data-spatial-zone='board'] {
+    max-width: 1120px;
+    margin-inline: auto;
+  }
+
+  /* Analytical — Composição + Distribuição: leitura editorial confortável */
+  [data-spatial-shell='true'] > [data-spatial-zone='analytical'] {
+    max-width: 1120px;
+    margin-inline: auto;
+  }
+
+  /* Contextual — Disclaimers/Avisos: bloco contido (narrow) */
+  [data-spatial-shell='true'] > [data-spatial-zone='contextual'] {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+
+  /* Conversion — CTAs/Próximos passos: medium centralizado */
+  [data-spatial-shell='true'] > [data-spatial-zone='conversion'] {
+    max-width: 1120px;
+    margin-inline: auto;
+  }
+}
+
+/* Widescreen ≥1440px — proporcionalidade preservada com leve expansão */
+@media (min-width: 1440px) {
+  [data-spatial-shell='true'] > [data-spatial-zone='strip'] {
+    max-width: 960px;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='analytical'],
+  [data-spatial-shell='true'] > [data-spatial-zone='board'],
+  [data-spatial-shell='true'] > [data-spatial-zone='conversion'] {
+    max-width: 1240px;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='contextual'] {
+    max-width: 820px;
+  }
+}
+
+/* Ultrawide ≥1680px — caps editoriais para evitar linhas cansativas */
+@media (min-width: 1680px) {
+  [data-spatial-shell='true'] > [data-spatial-zone='strip'] {
+    max-width: 1020px;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='analytical'],
+  [data-spatial-shell='true'] > [data-spatial-zone='board'],
+  [data-spatial-shell='true'] > [data-spatial-zone='conversion'] {
+    max-width: 1320px;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='contextual'] {
+    max-width: 880px;
+  }
+}
+
+/* Print — neutraliza sistema editorial, restaura fluxo linear A4 */
+@media print {
+  [data-spatial-shell='true'] > [data-spatial-zone='strip'],
+  [data-spatial-shell='true'] > [data-spatial-zone='board'],
+  [data-spatial-shell='true'] > [data-spatial-zone='analytical'],
+  [data-spatial-shell='true'] > [data-spatial-zone='contextual'],
+  [data-spatial-shell='true'] > [data-spatial-zone='conversion'] {
+    max-width: none !important;
+    margin-inline: 0 !important;
+  }
+}
+/* end Wave 19 */
+
+/* ============================================================================
+ * Wave 20 — Explicit Cinematic Composition Fix (Pós-Contemplação Stage)
+ * ----------------------------------------------------------------------------
+ * 100% CSS-only. Sem alterações em JSX, runtime, lógica financeira ou build.
+ *
+ * Problema atacado: o chapter Pós-Contemplação (data-spatial-zone='board')
+ * parecia "card solto perdido em canvas vazio" porque, mesmo com o grid 12-col
+ * da Wave 10, não havia *superfície compositiva* unificando as 3 células
+ * (Pós-Contemplação + Bid Impact + Atuarial). Cada célula flutuava como card
+ * independente sem direção de arte.
+ *
+ * Solução explícita: converter o board zone em UMA STAGE CINEMATOGRÁFICA real
+ * — superfície editorial unificada com gradiente dual-tom, hairline frame,
+ * caption de capítulo via ::before, células re-balanceadas (8/4) e divisores
+ * internos. O usuário percebe IMEDIATAMENTE a mudança visual ao abrir.
+ * ============================================================================
+ */
+
+@media (min-width: 1024px) {
+  /* ── Stage cinematográfico: superfície editorial unificada ────────── */
+  [data-spatial-shell='true'] > [data-spatial-zone='board'] {
+    position: relative;
+    padding: 2.25rem 2rem 2rem;
+    border-radius: 1.5rem;
+    background:
+      radial-gradient(120% 80% at 0% 0%, hsl(var(--primary) / 0.06), transparent 55%),
+      radial-gradient(120% 80% at 100% 100%, hsl(var(--secondary) / 0.05), transparent 55%),
+      linear-gradient(180deg, hsl(var(--card) / 0.55) 0%, hsl(var(--card) / 0.25) 100%);
+    border: 1px solid hsl(var(--border) / 0.55);
+    box-shadow:
+      0 1px 0 hsl(var(--background) / 0.4) inset,
+      0 30px 60px -40px hsl(var(--primary) / 0.25),
+      0 8px 24px -12px hsl(0 0% 0% / 0.18);
+    backdrop-filter: blur(8px) saturate(1.05);
+    -webkit-backdrop-filter: blur(8px) saturate(1.05);
+    overflow: hidden;
+  }
+
+  /* ── Caption editorial do chapter (canto superior esquerdo) ──────── */
+  [data-spatial-shell='true'] > [data-spatial-zone='board']::before {
+    content: 'ESTRATÉGIA PÓS-CONTEMPLAÇÃO';
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    color: hsl(var(--primary));
+    opacity: 0.78;
+    text-transform: uppercase;
+  }
+
+  /* ── Hairline editorial à direita do caption ─────────────────────── */
+  [data-spatial-shell='true'] > [data-spatial-zone='board']::after {
+    content: '';
+    position: absolute;
+    top: 1.45rem;
+    left: calc(2rem + 16ch);
+    right: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg,
+      hsl(var(--primary) / 0.3) 0%,
+      hsl(var(--primary) / 0.08) 30%,
+      transparent 100%);
+  }
+
+  /* ── Espaço para o caption acima da grade interna ─────────────────── */
+  [data-spatial-shell='true'] > [data-spatial-zone='board'] [data-spatial-board-grid] {
+    margin-top: 1.5rem;
+    column-gap: 2rem;
+    row-gap: 1.75rem;
+  }
+
+  /* ── Rebalanceamento 8/4 — Pós-Contemplação domina visualmente ────── */
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid] [data-spatial-board-cell='primary'] {
+    grid-column: span 8;
+    min-height: 380px;
+    position: relative;
+    padding-right: 1.5rem;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid][data-spatial-board-layout='single'] [data-spatial-board-cell='primary'] {
+    grid-column: 3 / span 8;
+    padding-right: 0;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid] [data-spatial-board-cell='secondary'] {
+    grid-column: span 4;
+    min-height: 380px;
+    position: relative;
+  }
+
+  /* ── Hairline vertical EXPLÍCITA entre primary e secondary ───────── */
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid] [data-spatial-board-cell='primary']::after {
+    content: '';
+    position: absolute;
+    top: 8%;
+    bottom: 8%;
+    right: -1rem;
+    width: 1px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      hsl(var(--border) / 0.65) 25%,
+      hsl(var(--border) / 0.65) 75%,
+      transparent 100%);
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid][data-spatial-board-layout='single'] [data-spatial-board-cell='primary']::after {
+    display: none;
+  }
+
+  /* ── Cells perdem chrome próprio para virarem PAINÉIS da stage ───── */
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-cell] [data-slot='card'],
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-cell] > div > [class*='rounded-lg'] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* ── Atuarial (full) ganha hairline horizontal de separação ──────── */
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid] [data-spatial-board-cell='full'] {
+    grid-column: span 12;
+    position: relative;
+    padding-top: 1.75rem;
+    margin-top: 0.5rem;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid] [data-spatial-board-cell='full']::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      hsl(var(--border) / 0.7) 50%,
+      transparent 100%);
+  }
+}
+
+/* Widescreen ≥1440px — stage respira mais */
+@media (min-width: 1440px) {
+  [data-spatial-shell='true'] > [data-spatial-zone='board'] {
+    padding: 2.5rem 2.5rem 2.25rem;
+    border-radius: 1.75rem;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='board']::before {
+    left: 2.5rem;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='board']::after {
+    left: calc(2.5rem + 16ch);
+    right: 2.5rem;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid] [data-spatial-board-cell='primary'],
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-grid] [data-spatial-board-cell='secondary'] {
+    min-height: 420px;
+  }
+}
+
+/* Mobile <1024px — preserva fluxo linear, sem stage decorativa */
+@media (max-width: 1023.98px) {
+  [data-spatial-shell='true'] > [data-spatial-zone='board']::before,
+  [data-spatial-shell='true'] > [data-spatial-zone='board']::after {
+    display: none;
+  }
+}
+
+/* Print — neutraliza stage cinematográfica */
+@media print {
+  [data-spatial-shell='true'] > [data-spatial-zone='board'] {
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+  [data-spatial-shell='true'] > [data-spatial-zone='board']::before,
+  [data-spatial-shell='true'] > [data-spatial-zone='board']::after,
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-cell='primary']::after,
+  [data-spatial-shell='true'] > [data-spatial-zone='board']
+    [data-spatial-board-cell='full']::before {
+    display: none !important;
+  }
+}
+
+/* Reduced motion — sem alterações de animação aqui, mas defensivo */
+@media (prefers-reduced-motion: reduce) {
+  [data-spatial-shell='true'] > [data-spatial-zone='board'] {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+/* end Wave 20 */
+
+/* ========================================================================
+   WAVE 22 — Landing Page v2 (modernização editorial)
+   Escopo: somente dentro de .landing-v2 (root da LandingPage).
+   Não afeta app autenticado nem outras rotas.
+   ======================================================================== */
+
+.landing-v2 {
+  /* Aliases curtos pro tema da landing usando tokens DS v2 */
+  --lv2-ink: hsl(var(--ds-text-display));
+  --lv2-body: hsl(var(--ds-text-body));
+  --lv2-muted: hsl(var(--ds-text-muted));
+  --lv2-bg: hsl(var(--ds-surface));
+  --lv2-soft: hsl(var(--ds-surface-soft));
+  --lv2-stroke: hsl(var(--ds-border));
+  --lv2-gold: hsl(var(--landing-gold));
+  --lv2-gold-soft: hsl(var(--landing-gold) / 0.12);
+  --lv2-dark: hsl(var(--landing-dark));
+}
+
+/* --- Background grain reutilizável --- */
+.lv2-grain {
+  position: relative;
+  isolation: isolate;
+}
+.lv2-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.lv2-grain > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Halo dourado controlado (hero, CTA final) --- */
+.lv2-halo {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.lv2-halo::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: 70%;
+  height: 80%;
+  background: radial-gradient(closest-side, hsl(var(--landing-gold) / 0.32), transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+}
+.lv2-halo::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -30% -15%;
+  width: 60%;
+  height: 70%;
+  background: radial-gradient(closest-side, hsl(204 100% 50% / 0.18), transparent 70%);
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 0;
+}
+.lv2-halo > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Card padrão v2 (substitui .landing-card no escopo da v2) --- */
+.lv2-card {
+  background: var(--lv2-bg);
+  border: 1px solid var(--lv2-stroke);
+  border-radius: var(--ds-radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--ds-shadow-sm);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+              box-shadow var(--ds-dur-base) var(--ds-ease-out),
+              border-color var(--ds-dur-base) var(--ds-ease-out);
+}
+.lv2-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ds-shadow-md);
+  border-color: hsl(var(--landing-gold) / 0.35);
+}
+.lv2-card-featured {
+  background: linear-gradient(180deg, hsl(var(--landing-gold) / 0.06), transparent 60%), var(--lv2-bg);
+  border: 1px solid hsl(var(--landing-gold) / 0.35);
+  box-shadow: var(--ds-shadow-md);
+}
+
+/* --- Bento grid de benefícios --- */
+.lv2-bento {
+  display: grid;
+  gap: 1px;
+  background: var(--lv2-stroke);
+  border: 1px solid var(--lv2-stroke);
+  border-radius: var(--ds-radius-lg);
+  overflow: hidden;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .lv2-bento {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+  }
+  .lv2-bento > .lv2-bento-hero { grid-column: span 6; grid-row: span 2; }
+  .lv2-bento > .lv2-bento-md   { grid-column: span 3; }
+  .lv2-bento > .lv2-bento-sm   { grid-column: span 2; }
+}
+@media (min-width: 1024px) {
+  .lv2-bento {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .lv2-bento > .lv2-bento-hero { grid-column: span 3; grid-row: span 2; }
+  .lv2-bento > .lv2-bento-md   { grid-column: span 3; }
+  .lv2-bento > .lv2-bento-sm   { grid-column: span 2; }
+}
+.lv2-bento-cell {
+  background: var(--lv2-bg);
+  padding: 1.75rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background var(--ds-dur-base) var(--ds-ease-out);
+}
+.lv2-bento-cell:hover {
+  background: var(--lv2-soft);
+}
+.lv2-bento-hero {
+  background: linear-gradient(160deg, hsl(var(--landing-dark)) 0%, hsl(var(--landing-dark-deep)) 100%);
+  color: white;
+}
+.lv2-bento-hero:hover { background: linear-gradient(160deg, hsl(var(--landing-dark)) 0%, hsl(var(--landing-dark-deep)) 100%); }
+
+/* --- Step editorial (Como funciona) --- */
+.lv2-step-num {
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-size: clamp(4rem, 8vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, hsl(var(--landing-gold)) 0%, hsl(var(--landing-gold) / 0.35) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Eyebrow editorial padrão --- */
+.lv2-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: hsl(var(--landing-gold));
+  font-weight: 600;
+}
+.lv2-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: hsl(var(--landing-gold) / 0.5);
+}
+
+/* --- Display heading --- */
+.lv2-display {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: hsl(40 40% 97.5%);
+  text-shadow: 0 1px 0 hsl(0 0% 0% / 0.22), 0 2px 22px hsl(0 0% 0% / 0.28);
+  font-size: clamp(2.25rem, 5.2vw, 4.25rem);
+}
+.lv2-display em {
+  font-style: italic;
+  font-weight: 300;
+  color: hsl(var(--landing-gold));
+}
+
+/* --- Stat tabular --- */
+.lv2-stat {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  color: var(--lv2-ink);
+}
+
+/* --- Mockup card (preview do app no hero) --- */
+.lv2-mockup {
+  position: relative;
+  border-radius: var(--ds-radius-xl);
+  background: linear-gradient(180deg, hsl(0 0% 100% / 0.06), hsl(0 0% 100% / 0.02));
+  border: 1px solid hsl(0 0% 100% / 0.10);
+  box-shadow:
+    0 30px 80px -30px hsl(222 50% 4% / 0.6),
+    inset 0 1px 0 hsl(0 0% 100% / 0.08);
+  padding: 14px;
+  backdrop-filter: blur(8px);
+}
+.lv2-mockup-bar {
+  display: flex;
+  gap: 6px;
+  padding: 4px 6px 10px;
+}
+.lv2-mockup-bar span {
+  width: 10px; height: 10px; border-radius: 999px;
+  background: hsl(0 0% 100% / 0.18);
+}
+.lv2-mockup-screen {
+  border-radius: 14px;
+  overflow: hidden;
+  background: hsl(210 25% 97%);
+  border: 1px solid hsl(0 0% 100% / 0.06);
+}
+
+/* --- Accordion FAQ refinado (escopo landing-v2) --- */
+.landing-v2 [data-lv2-faq] [data-state="open"] > svg { transform: rotate(45deg); }
+
+/* --- CTA full-bleed dramático (CTA final) --- */
+.lv2-cta-stage {
+  position: relative;
+  border-radius: var(--ds-radius-xl);
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+  background:
+    radial-gradient(120% 120% at 100% 0%, hsl(var(--landing-gold) / 0.18), transparent 55%),
+    radial-gradient(120% 120% at 0% 100%, hsl(204 100% 50% / 0.12), transparent 55%),
+    linear-gradient(160deg, hsl(var(--landing-dark)) 0%, hsl(var(--landing-dark-deep)) 100%);
+  box-shadow: var(--ds-shadow-lg);
+  overflow: hidden;
+}
+
+/* Print: neutralizar efeitos pesados */
+@media print {
+  .lv2-grain::after, .lv2-halo::before, .lv2-halo::after { display: none !important; }
+  .lv2-mockup { box-shadow: none; }
+}
+/* end Wave 22 */
+
+/* ============================================================
+   Wave 23 — App Shell Modernization (sidebar + header + bottom-nav)
+   Scope: aside[data-shell="v2"], [data-shell-header="v2"], [data-shell-bottom="v2"]
+   Princípio: SaaS premium contemporâneo (Linear/Raycast/Notion/Stripe)
+   - Active state com indicator bar + tinted gradient (não bloco branco pesado)
+   - Atmospheric depth via radial gradient ambiente no topo
+   - Hairline divider de grupos, eyebrow refinado
+   - Hover states sutis tonais
+   - Bottom-nav mobile com glass + active pill
+   - Module header com hairline ember inferior
+   ============================================================ */
+
+/* ---------- Atmospheric ambient ---------- */
+:where(aside[data-shell="v2"]) {
+  position: fixed;
+  isolation: isolate;
+}
+:where(aside[data-shell="v2"])::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 40% at 50% -10%, hsl(var(--primary) / 0.18), transparent 70%),
+    radial-gradient(80% 30% at 50% 100%, hsl(204 100% 45% / 0.10), transparent 70%);
+  z-index: 0;
+  opacity: 0.85;
+}
+:where(aside[data-shell="v2"]) > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header logo area: refino do divisor */
+:where(aside[data-shell="v2"]) > div:first-child {
+  border-bottom-color: hsl(0 0% 100% / 0.06) !important;
+  background: linear-gradient(to bottom, hsl(0 0% 100% / 0.03), transparent);
+}
+
+/* ---------- Group label: refinement ---------- */
+:where(aside[data-shell="v2"]) [data-shell-group-label] {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  color: hsl(0 0% 100% / 0.32);
+  font-weight: 600;
+  padding-top: 6px;
+  padding-bottom: 4px;
+}
+
+/* Group separator: hairline entre grupos */
+:where(aside[data-shell="v2"]) [data-shell-group] + [data-shell-group] {
+  border-top: 1px solid hsl(0 0% 100% / 0.045);
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+/* ---------- Items: hover/active premium ---------- */
+:where(aside[data-shell="v2"]) [data-shell-item] {
+  position: relative;
+}
+:where(aside[data-shell="v2"]) [data-shell-item]::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 18%;
+  bottom: 18%;
+  width: 2px;
+  border-radius: 2px;
+  background: hsl(var(--primary) / 0.95);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+:where(aside[data-shell="v2"]) [data-shell-item]:hover {
+  background: linear-gradient(90deg, hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.02));
+}
+:where(aside[data-shell="v2"]) [data-shell-item][data-active="true"] {
+  background: linear-gradient(90deg,
+    hsl(var(--primary) / 0.22) 0%,
+    hsl(var(--primary) / 0.08) 60%,
+    transparent 100%);
+  box-shadow:
+    inset 0 1px 0 hsl(0 0% 100% / 0.06),
+    0 1px 0 hsl(0 0% 0% / 0.15);
+}
+:where(aside[data-shell="v2"]) [data-shell-item][data-active="true"]::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+/* Ícone do active ganha leve presence */
+:where(aside[data-shell="v2"]) [data-shell-item][data-active="true"] svg {
+  filter: drop-shadow(0 0 6px hsl(var(--primary) / 0.45));
+}
+
+/* Subitens (children) */
+:where(aside[data-shell="v2"]) [data-shell-subitem]:hover {
+  background: hsl(0 0% 100% / 0.04);
+}
+:where(aside[data-shell="v2"]) [data-shell-subitem][data-active="true"] {
+  background: linear-gradient(90deg, hsl(var(--primary) / 0.16), transparent);
+  box-shadow: inset 2px 0 0 hsl(var(--primary) / 0.85);
+}
+
+/* Footer: divisor mais leve */
+:where(aside[data-shell="v2"]) > div:last-child {
+  border-top-color: hsl(0 0% 100% / 0.06) !important;
+  background: linear-gradient(to top, hsl(0 0% 0% / 0.18), transparent);
+}
+:where(aside[data-shell="v2"]) > div:last-child button:hover {
+  background: hsl(0 0% 100% / 0.05) !important;
+}
+
+/* ---------- Collapsed mode: items get pill centered ---------- */
+:where(aside[data-shell="v2"][data-collapsed="true"]) [data-shell-item][data-active="true"] {
+  background: radial-gradient(60% 90% at 50% 50%, hsl(var(--primary) / 0.32), hsl(var(--primary) / 0.08));
+  border-radius: 10px;
+}
+
+/* ---------- Module header v2 ---------- */
+:where([data-shell-header="v2"]) {
+  position: relative;
+}
+:where([data-shell-header="v2"])::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(var(--primary) / 0.35) 12%,
+    hsl(var(--primary) / 0.55) 50%,
+    hsl(var(--primary) / 0.35) 88%,
+    transparent 100%);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ---------- Bottom nav mobile v2 ---------- */
+:where(nav[data-shell-bottom="v2"]) {
+  background: linear-gradient(to top,
+    hsl(var(--card) / 0.96),
+    hsl(var(--card) / 0.86)) !important;
+  backdrop-filter: blur(14px) saturate(1.05);
+  -webkit-backdrop-filter: blur(14px) saturate(1.05);
+  border-top-color: hsl(var(--border) / 0.7) !important;
+  box-shadow: 0 -4px 16px -8px hsl(0 0% 0% / 0.12);
+}
+:where(nav[data-shell-bottom="v2"]) button {
+  position: relative;
+}
+:where(nav[data-shell-bottom="v2"]) button > svg {
+  transition: transform 200ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+:where(nav[data-shell-bottom="v2"]) button.text-primary::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: hsl(var(--primary));
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.55);
+}
+
+/* ---------- A11y / motion / print ---------- */
+@media (prefers-reduced-motion: reduce) {
+  :where(aside[data-shell="v2"]) [data-shell-item],
+  :where(aside[data-shell="v2"]) [data-shell-item]::before,
+  :where(aside[data-shell="v2"]) [data-shell-subitem],
+  :where(nav[data-shell-bottom="v2"]) button > svg {
+    transition: none !important;
+  }
+}
+@media print {
+  :where(aside[data-shell="v2"])::before,
+  :where([data-shell-header="v2"])::after,
+  :where(nav[data-shell-bottom="v2"]) { display: none !important; }
+}
+/* end Wave 23 */
+
+/* ============================================================
+   Wave 24 — Integrated Workspace Composition
+   Scope: [data-shell-workspace="v2"], [data-shell-main="v2"]
+   Goal: dissolve the "menu beside page" feel; create one continuous
+   premium workspace ambience. 100% presentation. No JS, no logic.
+   ============================================================ */
+
+:where([data-shell-workspace="v2"]) {
+  /* Ambient atmosphere that crosses the entire shell */
+  position: relative;
+  background:
+    radial-gradient(1200px 600px at 12% -10%, hsl(var(--primary) / 0.05), transparent 60%),
+    radial-gradient(900px 500px at 100% 110%, hsl(var(--primary) / 0.035), transparent 65%),
+    hsl(var(--background));
+}
+
+/* Soft seam between sidebar and content (no hard border) */
+@media (min-width: 768px) {
+  :where([data-shell-workspace="v2"]) :where(aside[data-shell="v2"]) {
+    box-shadow:
+      1px 0 0 0 hsl(var(--border) / 0.35),
+      8px 0 24px -16px hsl(var(--primary) / 0.18);
+    border-right: 0 !important;
+  }
+
+  /* Inset workspace card — content feels "set into" the shell */
+  :where([data-shell-main="v2"]) {
+    background:
+      linear-gradient(180deg,
+        hsl(var(--background) / 0.65) 0%,
+        hsl(var(--background) / 0.95) 120px),
+      hsl(var(--background));
+  }
+
+  /* Subtle top hairline framing the workspace below the header */
+  :where([data-shell-main="v2"])::before {
+    content: "";
+    position: sticky;
+    top: 0;
+    display: block;
+    height: 1px;
+    margin-bottom: -1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.18) 30%,
+      hsl(var(--primary) / 0.18) 70%,
+      transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+/* Refined sidebar group rhythm — more breathing, less ERP density */
+:where(aside[data-shell="v2"]) [data-shell-group] + [data-shell-group] {
+  margin-top: 18px;
+  padding-top: 14px;
+}
+:where(aside[data-shell="v2"]) [data-shell-group-label] {
+  opacity: 0.55;
+  margin-bottom: 6px;
+}
+
+/* Quieter active dominance — workspace cohesion over aggressive highlight */
+:where(aside[data-shell="v2"]) [data-shell-item][data-active="true"] {
+  background: linear-gradient(90deg,
+    hsl(var(--primary) / 0.16) 0%,
+    hsl(var(--primary) / 0.06) 60%,
+    transparent 100%);
+}
+
+/* Mobile: keep continuity — no abrupt main edge under header */
+@media (max-width: 767px) {
+  :where([data-shell-main="v2"]) {
+    background: hsl(var(--background));
+  }
+}
+
+@media print {
+  :where([data-shell-workspace="v2"]) { background: white !important; }
+  :where([data-shell-main="v2"])::before { display: none !important; }
+}
+/* end Wave 24 */
+
+/* =====================================================================
+   Wave 25 — Executive Sidebar Information Architecture
+   Scope: aside[data-shell="v2"] only
+   Goal: turn the sidebar from a "list of pages" into an executive
+   operational map — refined grouping, vertical rhythm, scanning,
+   and label hierarchy. Pure presentation. No JS, no logic.
+   ===================================================================== */
+
+/* Vertical rhythm: deeper breathing between groups, premium cadence */
+:where(aside[data-shell="v2"]) [data-shell-nav] {
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+:where(aside[data-shell="v2"]) [data-shell-group] + [data-shell-group] {
+  margin-top: 22px;
+  padding-top: 18px;
+  position: relative;
+}
+/* Hairline separator above secondary groups — barely visible, premium */
+:where(aside[data-shell="v2"]) [data-shell-group] + [data-shell-group]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 14px;
+  right: 14px;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(0 0% 100% / 0.06) 25%,
+    hsl(0 0% 100% / 0.06) 75%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+/* Group label — executive treatment: smaller, wider tracking, lower opacity */
+:where(aside[data-shell="v2"]) [data-shell-group-label] {
+  font-size: 9.5px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.42;
+  margin-bottom: 8px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+/* Item rhythm — slightly looser vertical pacing for scanning */
+:where(aside[data-shell="v2"]) [data-shell-item] {
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+  font-size: 13px !important;
+  letter-spacing: 0.005em;
+}
+/* Hint line under module labels — quieter, smaller, refined */
+:where(aside[data-shell="v2"]) [data-shell-item] span + span,
+:where(aside[data-shell="v2"]) [data-shell-item] .text-\[10px\] {
+  font-size: 10px !important;
+  opacity: 0.42;
+  letter-spacing: 0.01em;
+  margin-top: 1px;
+}
+
+/* Idle item icons — softer (avoid competing weight); active stays primary */
+:where(aside[data-shell="v2"]) [data-shell-item][data-active="false"] svg {
+  opacity: 0.72;
+}
+:where(aside[data-shell="v2"]) [data-shell-item][data-active="false"]:hover svg {
+  opacity: 0.95;
+}
+
+/* Subitems — tighter tree feel, refined hierarchy */
+:where(aside[data-shell="v2"]) [data-shell-subitem] {
+  font-size: 12px !important;
+  padding-top: 5.5px !important;
+  padding-bottom: 5.5px !important;
+  letter-spacing: 0.005em;
+}
+:where(aside[data-shell="v2"]) [data-shell-subitem][data-active="true"] {
+  background: linear-gradient(90deg,
+    hsl(var(--primary) / 0.12) 0%,
+    hsl(var(--primary) / 0.04) 70%,
+    transparent 100%);
+  border-radius: 6px;
+}
+
+/* Footer block — quieter, sits as utility row, not as another group */
+:where(aside[data-shell="v2"]) > div:last-child {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+:where(aside[data-shell="v2"]) > div:last-child button {
+  font-size: 12.5px !important;
+  opacity: 0.78;
+}
+:where(aside[data-shell="v2"]) > div:last-child button:hover {
+  opacity: 1;
+}
+
+/* Collapsed mode — preserve hairlines but compact spacing */
+:where(aside[data-shell="v2"][data-collapsed="true"]) [data-shell-group] + [data-shell-group] {
+  margin-top: 14px;
+  padding-top: 12px;
+}
+:where(aside[data-shell="v2"][data-collapsed="true"]) [data-shell-group] + [data-shell-group]::before {
+  left: 8px;
+  right: 8px;
+}
+
+@media print {
+  :where(aside[data-shell="v2"]) [data-shell-group] + [data-shell-group]::before {
+    display: none !important;
+  }
+}
+/* end Wave 25 */
+
+/* =====================================================================
+   Wave 26 — Canonical Module Architecture
+   Scope: [data-module-canvas="v1"] only (single mount in Index.tsx)
+   Goal: turn each module into part of one architectural template —
+   shared canvas width, vertical rhythm, card/section/table/empty/skeleton
+   defaults. Pure presentation, additive, zero-specificity (:where).
+   Any module can still override via its own className or higher specificity.
+   ===================================================================== */
+
+/* -- Canonical canvas: max width + centered + premium top/bottom rhythm -- */
+:where([data-module-canvas="v1"]) {
+  --canvas-max: 1320px;
+  --canvas-gap: 20px;       /* vertical rhythm between top-level blocks */
+  --canvas-gap-lg: 28px;    /* between distinct sections */
+  --canvas-radius: 14px;    /* canonical card radius */
+  --canvas-radius-sm: 10px;
+  --canvas-surface: hsl(var(--card));
+  --canvas-hairline: hsl(var(--border) / 0.55);
+  --canvas-muted: hsl(var(--muted-foreground) / 0.78);
+}
+:where([data-module-canvas="v1"]) > * {
+  max-width: var(--canvas-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -- Canonical card system (default = "elevated") --
+   Applies to shadcn Card (.rounded-lg.border.bg-card.text-card-foreground.shadow-sm)
+   without overriding anything explicit. Variants opt-in via data-card-variant. */
+:where([data-module-canvas="v1"]) :where([class*="rounded-lg"][class*="border"][class*="bg-card"]) {
+  border-radius: var(--canvas-radius);
+  border-color: var(--canvas-hairline);
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.02) inset,
+    0 1px 2px hsl(220 40% 8% / 0.04),
+    0 6px 18px -10px hsl(220 40% 8% / 0.06);
+}
+:where([data-module-canvas="v1"]) :where([data-card-variant="flat"]) {
+  box-shadow: none;
+  background: hsl(var(--card) / 0.6);
+}
+:where([data-module-canvas="v1"]) :where([data-card-variant="stage"]) {
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.04) inset,
+    0 2px 6px hsl(220 40% 8% / 0.06),
+    0 18px 40px -22px hsl(var(--primary) / 0.18);
+  border-color: hsl(var(--primary) / 0.18);
+}
+:where([data-module-canvas="v1"]) :where([data-card-variant="contextual"]) {
+  background: linear-gradient(180deg,
+    hsl(var(--primary) / 0.04) 0%,
+    hsl(var(--card)) 60%);
+  border-color: hsl(var(--primary) / 0.18);
+}
+:where([data-module-canvas="v1"]) :where([data-card-variant="analytical"]) {
+  background:
+    linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--muted) / 0.35) 100%);
+}
+
+/* -- Canonical section system --
+   Use <section data-module-section> for top-level chapters; gives consistent
+   vertical breathing without forcing modules to migrate markup. */
+:where([data-module-canvas="v1"]) :where([data-module-section]) {
+  margin-bottom: var(--canvas-gap-lg);
+}
+:where([data-module-canvas="v1"]) :where([data-module-section]) :where(h2),
+:where([data-module-canvas="v1"]) :where([data-module-section-title]) {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  margin-bottom: 10px;
+  color: hsl(var(--foreground));
+}
+:where([data-module-canvas="v1"]) :where([data-module-section-eyebrow]) {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--canvas-muted);
+  margin-bottom: 4px;
+}
+
+/* -- Canonical table system --
+   Targets shadcn <Table> markup without overriding sortable headers etc.
+   Rhythm + density + hairline harmonization only. */
+:where([data-module-canvas="v1"]) :where(table) {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+:where([data-module-canvas="v1"]) :where(thead th) {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--canvas-muted);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--canvas-hairline);
+}
+:where([data-module-canvas="v1"]) :where(tbody td) {
+  font-size: 13px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid hsl(var(--border) / 0.35);
+}
+:where([data-module-canvas="v1"]) :where(tbody tr:last-child td) {
+  border-bottom: 0;
+}
+:where([data-module-canvas="v1"]) :where(tbody tr:hover) {
+  background: hsl(var(--muted) / 0.35);
+}
+
+/* -- Canonical empty / skeleton harmonization --
+   Modules can mark wrappers with [data-module-empty] / [data-module-skeleton]
+   to opt into the canonical look. Opt-in only — never auto-mutates anything. */
+:where([data-module-canvas="v1"]) :where([data-module-empty]) {
+  border: 1px dashed hsl(var(--border));
+  border-radius: var(--canvas-radius);
+  padding: 28px 24px;
+  text-align: center;
+  color: var(--canvas-muted);
+  background: hsl(var(--muted) / 0.25);
+}
+:where([data-module-canvas="v1"]) :where([data-module-empty]) :where(h3) {
+  font-size: 14px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin-bottom: 4px;
+}
+:where([data-module-canvas="v1"]) :where([data-module-skeleton]) {
+  background: linear-gradient(90deg,
+    hsl(var(--muted) / 0.5) 0%,
+    hsl(var(--muted) / 0.8) 50%,
+    hsl(var(--muted) / 0.5) 100%);
+  background-size: 200% 100%;
+  animation: canvas-skeleton 1.4s ease-in-out infinite;
+  border-radius: var(--canvas-radius-sm);
+}
+@keyframes canvas-skeleton {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* -- Canonical typography hierarchy (subtle, no override of explicit sizes) -- */
+:where([data-module-canvas="v1"]) :where(h1) {
+  letter-spacing: -0.012em;
+}
+:where([data-module-canvas="v1"]) :where(h2) {
+  letter-spacing: -0.005em;
+}
+:where([data-module-canvas="v1"]) :where(h3) {
+  letter-spacing: -0.003em;
+}
+
+/* -- Mobile: tighter canvas gap, preserve readability -- */
+@media (max-width: 767px) {
+  :where([data-module-canvas="v1"]) {
+    --canvas-gap: 16px;
+    --canvas-gap-lg: 22px;
+  }
+  :where([data-module-canvas="v1"]) :where(thead th),
+  :where([data-module-canvas="v1"]) :where(tbody td) {
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where([data-module-canvas="v1"]) :where([data-module-skeleton]) {
+    animation: none;
+  }
+}
+
+@media print {
+  :where([data-module-canvas="v1"]) :where([class*="rounded-lg"][class*="border"][class*="bg-card"]) {
+    box-shadow: none !important;
+    border-color: hsl(0 0% 80%) !important;
+  }
+}
+/* end Wave 26 */
+
+/* =====================================================================
+   Wave 27 — Canonical Module Migration
+   Scope: [data-module-canvas="v1"] [data-ui="..."]
+   Goal: complete the canonical adoption by targeting shadcn primitives
+   directly via stable data-ui attributes (cleaner than class-fishing).
+   Each Card/Skeleton in any module instantly conforms — zero per-module
+   markup migration. Pure presentation, additive, :where() = 0 specificity.
+   ===================================================================== */
+
+/* -- Card primitive (supersedes Wave 26's class-attribute selector) -- */
+:where([data-module-canvas="v1"]) :where([data-ui="card"]) {
+  border-radius: var(--canvas-radius);
+  border-color: var(--canvas-hairline);
+  background: hsl(var(--card));
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.025) inset,
+    0 1px 2px hsl(220 40% 8% / 0.045),
+    0 8px 22px -12px hsl(220 40% 8% / 0.08);
+  transition: box-shadow 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card"]):hover {
+  border-color: hsl(var(--border) / 0.85);
+}
+
+/* -- Card header / title / description rhythm harmonization --
+   Tames shadcn's default text-2xl CardTitle inside the canvas without
+   forcing every CardTitle to declare its own size. Modules that explicitly
+   set a different className continue to win (zero specificity). */
+:where([data-module-canvas="v1"]) :where([data-ui="card-header"]) {
+  padding: 18px 20px 14px;
+  gap: 4px;
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card-title"]) {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card-description"]) {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--canvas-muted);
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card-content"]) {
+  padding: 16px 20px 20px;
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card-content"]:first-child) {
+  padding-top: 20px;
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card-footer"]) {
+  padding: 14px 20px 18px;
+  border-top: 1px solid hsl(var(--border) / 0.45);
+  margin-top: 4px;
+}
+
+/* -- Variants: refined to use data-ui="card" as the host -- */
+:where([data-module-canvas="v1"]) :where([data-ui="card"][data-card-variant="flat"]) {
+  box-shadow: none;
+  background: hsl(var(--card) / 0.55);
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card"][data-card-variant="stage"]) {
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.05) inset,
+    0 2px 6px hsl(220 40% 8% / 0.07),
+    0 22px 50px -24px hsl(var(--primary) / 0.22);
+  border-color: hsl(var(--primary) / 0.22);
+  background: linear-gradient(180deg,
+    hsl(var(--card)) 0%,
+    hsl(var(--primary) / 0.02) 100%);
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card"][data-card-variant="contextual"]) {
+  background: linear-gradient(180deg,
+    hsl(var(--primary) / 0.05) 0%,
+    hsl(var(--card)) 55%);
+  border-color: hsl(var(--primary) / 0.20);
+}
+:where([data-module-canvas="v1"]) :where([data-ui="card"][data-card-variant="analytical"]) {
+  background: linear-gradient(180deg,
+    hsl(var(--card)) 0%,
+    hsl(var(--muted) / 0.40) 100%);
+}
+
+/* -- Skeleton primitive: canonical shimmer (overrides shadcn animate-pulse) -- */
+:where([data-module-canvas="v1"]) :where([data-ui="skeleton"]) {
+  animation: canvas-skeleton 1.4s ease-in-out infinite;
+  background: linear-gradient(90deg,
+    hsl(var(--muted) / 0.55) 0%,
+    hsl(var(--muted) / 0.85) 50%,
+    hsl(var(--muted) / 0.55) 100%);
+  background-size: 200% 100%;
+  border-radius: var(--canvas-radius-sm);
+}
+@media (prefers-reduced-motion: reduce) {
+  :where([data-module-canvas="v1"]) :where([data-ui="skeleton"]) {
+    animation: none;
+    background: hsl(var(--muted) / 0.7);
+  }
+}
+
+/* -- Card grids: harmonize legacy gap-2/3/4 to canonical 16px feel
+   only when authors didn't pick a specific gap value beyond 16px. -- */
+:where([data-module-canvas="v1"]) :where(.grid:not([class*="gap-"])) {
+  gap: 16px;
+}
+
+/* -- Section rhythm: stack of Cards inside a section gets canonical breathing -- */
+:where([data-module-canvas="v1"]) :where([data-module-section]) > :where([data-ui="card"]) + :where([data-ui="card"]) {
+  margin-top: 16px;
+}
+
+/* -- Print: neutralize halos/gradients on cards -- */
+@media print {
+  :where([data-module-canvas="v1"]) :where([data-ui="card"]) {
+    box-shadow: none !important;
+    background: white !important;
+    border-color: hsl(0 0% 80%) !important;
+  }
+  :where([data-module-canvas="v1"]) :where([data-ui="card"][data-card-variant]) {
+    background: white !important;
+  }
+}
+/* end Wave 27 */
+
+/* ============================================================
+   Wave 28 — Transversal Premium Polish
+   Sensory refinement layer: motion tokens, hover/active/focus
+   states, skeleton breathing, microinteractions.
+   100% visual; no logic, no providers, no engines touched.
+   Scoped to [data-module-canvas="v1"] when targeting modules,
+   global only for tokens + reduced-motion safety.
+   ============================================================ */
+
+:root {
+  /* Premium motion tokens — controlled, not flashy */
+  --motion-fast:    120ms;
+  --motion-base:    180ms;
+  --motion-medium:  240ms;
+  --motion-slow:    360ms;
+
+  /* Easing — high-end product feel (no bounce, no overshoot) */
+  --ease-premium:   cubic-bezier(0.22, 0.61, 0.36, 1);     /* default */
+  --ease-entrance:  cubic-bezier(0.16, 0.84, 0.44, 1);     /* enter */
+  --ease-exit:      cubic-bezier(0.4, 0, 0.84, 0.16);      /* exit */
+  --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);          /* fallback */
+
+  /* Hover lift token — barely perceptible, premium */
+  --hover-lift-y:   -1px;
+  --hover-shadow-strength: 0.18;
+}
+
+/* -- Default transition envelope for premium primitives ---------- */
+:where([data-module-canvas="v1"]) :where([data-ui="card"]) {
+  transition:
+    transform     var(--motion-medium) var(--ease-premium),
+    box-shadow    var(--motion-medium) var(--ease-premium),
+    border-color  var(--motion-base)   var(--ease-premium),
+    background    var(--motion-base)   var(--ease-premium);
+  will-change: transform;
+}
+
+/* Cards inside sections: silent, refined hover (only when interactive variant) */
+:where([data-module-canvas="v1"]) :where([data-ui="card"][data-card-variant="contextual"]):hover,
+:where([data-module-canvas="v1"]) :where([data-ui="card"][data-card-variant="analytical"]):hover {
+  transform: translateY(var(--hover-lift-y));
+  box-shadow:
+    inset 0 1px 0 hsl(0 0% 100% / 0.08),
+    0 12px 32px -18px hsl(220 60% 6% / calc(var(--hover-shadow-strength) + 0.12)),
+    0 2px 6px   -3px  hsl(220 60% 6% / 0.18);
+}
+
+/* -- Buttons: refined hover/active feel ------------------------- */
+:where(button, [role="button"], a.btn, .btn, [data-ui="btn"]) {
+  transition:
+    background-color var(--motion-base) var(--ease-premium),
+    color            var(--motion-base) var(--ease-premium),
+    border-color     var(--motion-base) var(--ease-premium),
+    box-shadow       var(--motion-base) var(--ease-premium),
+    transform        var(--motion-fast) var(--ease-premium),
+    opacity          var(--motion-base) var(--ease-premium);
+}
+:where(button, [role="button"]):not(:disabled):active {
+  transform: translateY(0.5px) scale(0.997);
+  transition-duration: 80ms;
+}
+:where(button, [role="button"]):disabled {
+  cursor: not-allowed;
+}
+
+/* -- Inputs / textareas / selects ------------------------------- */
+:where(input, textarea, select, [role="combobox"], [role="textbox"]) {
+  transition:
+    border-color var(--motion-base) var(--ease-premium),
+    box-shadow   var(--motion-base) var(--ease-premium),
+    background   var(--motion-base) var(--ease-premium);
+}
+
+/* -- Premium focus ring: elegant, accessible, never harsh ------- */
+:where([data-module-canvas="v1"]) :where(
+  button, [role="button"], a, input, textarea, select,
+  [role="tab"], [role="menuitem"], [role="option"], [role="combobox"]
+):focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 1.5px hsl(var(--background)),
+    0 0 0 3px   hsl(var(--primary) / 0.55);
+  border-radius: inherit;
+  transition: box-shadow var(--motion-fast) var(--ease-premium);
+}
+
+/* -- Tabs: silent transition, no jolt --------------------------- */
+:where([data-module-canvas="v1"]) :where([role="tab"]) {
+  transition:
+    color           var(--motion-base) var(--ease-premium),
+    background      var(--motion-base) var(--ease-premium),
+    border-color    var(--motion-base) var(--ease-premium),
+    box-shadow      var(--motion-base) var(--ease-premium);
+}
+
+/* -- Table rows: discreet hover, no aggressive flash ------------ */
+:where([data-module-canvas="v1"]) :where(table tbody tr) {
+  transition:
+    background-color var(--motion-base) var(--ease-premium);
+}
+:where([data-module-canvas="v1"]) :where(table tbody tr:hover) {
+  background-color: hsl(var(--foreground) / 0.025);
+}
+
+/* -- Sidebar items already styled by Wave 25; only smoothing icon -- */
+:where(aside[data-shell="v2"]) :where(svg) {
+  transition:
+    opacity    var(--motion-base) var(--ease-premium),
+    transform  var(--motion-base) var(--ease-premium),
+    color      var(--motion-base) var(--ease-premium);
+}
+
+/* -- Skeleton: organic breathing replaces dry pulse -------------- */
+@keyframes premium-skeleton-breathe {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 0.85; }
+}
+:where([data-module-canvas="v1"]) :where([data-ui="skeleton"]) {
+  animation:
+    premium-skeleton-breathe 2.4s var(--ease-premium) infinite,
+    premium-skeleton-shimmer 1.6s linear infinite;
+  background-size: 200% 100%;
+}
+@keyframes premium-skeleton-shimmer {
+  0%   { background-position: 180% 0; }
+  100% { background-position: -80% 0; }
+}
+
+/* -- Perceived performance: gentle entrance for newly mounted cards
+      (uses CSS animation, no JS, no layout thrash) ---------------- */
+@keyframes premium-card-enter {
+  0%   { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+:where([data-module-canvas="v1"]) :where([data-module-section] > [data-ui="card"]) {
+  animation: premium-card-enter var(--motion-medium) var(--ease-entrance) both;
+}
+
+/* -- Dialog/popover/menu: smoother default open feel ------------- */
+:where([role="dialog"], [role="menu"], [data-radix-popper-content-wrapper] > *) {
+  transition:
+    opacity   var(--motion-medium) var(--ease-entrance),
+    transform var(--motion-medium) var(--ease-entrance);
+}
+
+/* -- Motion safety: respect user preference --------------------- */
+@media (prefers-reduced-motion: reduce) {
+  :where([data-module-canvas="v1"]) :where([data-ui="card"]),
+  :where([data-module-canvas="v1"]) :where([data-ui="card"]):hover,
+  :where(button, [role="button"]):active {
+    transform: none !important;
+  }
+  :where([data-module-canvas="v1"]) :where([data-ui="skeleton"]),
+  :where([data-module-canvas="v1"]) :where([data-module-section] > [data-ui="card"]) {
+    animation: none !important;
+  }
+  *, *::before, *::after {
+    transition-duration: 1ms !important;
+    animation-duration:  1ms !important;
+  }
+}
+/* end Wave 28 */
+
+/* =====================================================================
+ * Wave 29 — Design System Consolidation & CSS Cleanup (DOC-ONLY block)
+ * ---------------------------------------------------------------------
+ * No rules. No selectors. Pure architectural map for future waves.
+ * Goal: make the layered cascade explicit so contributors stop guessing
+ * where to add new styles.
+ *
+ * LAYER MAP (load order = cascade order)
+ *   1. @import fonts            ........... line 1
+ *   2. @tailwind base/components/utilities  lines 3–5
+ *   3. @layer base — tokens (:root + .dark) lines 7–180
+ *        • institutional palette  (--background/--primary/...)
+ *        • design system v2       (--ds-*)  → docs/design/tokens-v2.md
+ *        • premium motion (Wave 28: --motion-*, --ease-*) — see line 5382
+ *   4. @layer base — globals (body, *)      lines 182–191
+ *   5. @layer components — legacy utilities lines 193+ (.input-group, etc.)
+ *   6. Print / mobile overflow              lines 394–1077  (!important OK: print)
+ *   7. EDITORIAL KIT Waves 2–11             lines 1340–2670 (simulator surface)
+ *   8. Module-specific Waves 12–22          lines 2680–4685
+ *   9. App Shell Waves 23–25                lines 4687–5067 (sidebar/header)
+ *  10. Canonical canvas Waves 26–27         lines 5069–5371 ([data-module-canvas="v1"])
+ *  11. Premium polish Wave 28               lines 5373–5533 (motion + focus)
+ *  12. Wave 29 (this block)                 documentation only
+ *
+ * KNOWN DUPLICATIONS (documented, NOT auto-merged — visual risk)
+ *   • Motion tokens coexist intentionally:
+ *       --ds-dur-fast (180ms) ≡ --motion-base (180ms)        → safe alias
+ *       --ds-dur-base (320ms) ≠ --motion-medium (240ms)      → DIFFERENT, keep
+ *       --ds-dur-slow (560ms) ≠ --motion-slow  (360ms)       → DIFFERENT, keep
+ *       --ds-ease-out (0.22, 1, 0.36, 1) ≠ --ease-premium    → DIFFERENT, keep
+ *   • Card surfaces: shadcn `Card` + `[data-card-variant]` (Waves 26/27)
+ *     supersede legacy `.module-card` (removed in Wave 29).
+ *
+ * RULES FOR FUTURE WAVES
+ *   - Add tokens only inside the :root/.dark blocks (lines 7–180).
+ *   - New module styles target `[data-module-canvas="v1"]` (Wave 26).
+ *   - New primitive styles target `[data-ui="..."]` (Wave 27).
+ *   - Use `:where(...)` for zero specificity unless overriding a Wave.
+ *   - !important is reserved for `@media print` and reduced-motion safety.
+ *   - Consume tokens — never hard-code hex outside :root.
+ *
+ * Full audit: .lovable/audit/design-system-consolidation-css-cleanup-wave.md
+ * ===================================================================== */
+/* end Wave 29 */
+
+/* =====================================================================
+ * Wave 33 — Sidebar / Metrics / Cards Consistency Correction
+ * ---------------------------------------------------------------------
+ * 1. Form card (Dados do Consórcio) gets the SAME materiality as the
+ *    cockpit hero panel — same radius, ambient gradient, border tone,
+ *    inset hairline. Visually they are now siblings of one system.
+ * 2. Inner Card inside the form section becomes transparent (no double
+ *    framing) — its content sits directly on the cockpit-form surface.
+ * ===================================================================== */
+[data-cockpit-form='true'] {
+  position: relative;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: 0.875rem;
+  background:
+    radial-gradient(120% 80% at 0% 0%, hsl(var(--primary) / 0.045), transparent 55%),
+    linear-gradient(180deg, hsl(var(--muted) / 0.32) 0%, hsl(var(--background)) 75%);
+  border: 1px solid hsl(var(--border) / 0.5);
+  isolation: isolate;
+}
+[data-cockpit-form='true']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 hsl(var(--background) / 0.6);
+  z-index: -1;
+}
+@media (min-width: 1280px) {
+  [data-cockpit-form='true'] {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+}
+/* Inner shadcn Card → flat (no nested frame). */
+[data-cockpit-form='true'] [data-editorial-form='true'] {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+[data-cockpit-form='true'] [data-editorial-form-header='true'] {
+  border-bottom: 1px solid hsl(var(--border) / 0.35);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Sidebar: reinforce no-scroll on standard desktop heights — group
+   labels and items already tightened; this just hides scrollbar chrome
+   if any residual overflow appears on shorter viewports. */
+[data-shell='v2'] [data-shell-nav]::-webkit-scrollbar { width: 0; height: 0; }
+[data-shell='v2'] [data-shell-nav] { scrollbar-width: none; }
+/* end Wave 33 */
+
+/* =====================================================================
+ * Wave 34 — Small-Desktop Financial Typography Fit
+ * ---------------------------------------------------------------------
+ * Breakpoint real para notebooks/desktops estreitos: valores financeiros
+ * reduzem antes de cortar/ultrapassar, preservando linha única e presença.
+ * ===================================================================== */
+@media (min-width: 1100px) and (max-width: 1399.98px) {
+  [data-signature-shell='true'] [data-cockpit-hero='true'] {
+    padding: 1.35rem 1.35rem 1.5rem !important;
+  }
+
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary'] {
+    padding: 1.05rem 1.1rem !important;
+  }
+
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell[data-emphasis='primary']
+    .metric-cell-value {
+    font-size: clamp(2rem, 10cqw, 2.55rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary']) {
+    padding: 0.7rem 0.75rem !important;
+  }
+
+  [data-signature-shell='true'] [data-cockpit-hero='true']
+    .metric-row.metric-row--editorial > .metric-cell:not([data-emphasis='primary'])
+    .metric-cell-value {
+    font-size: clamp(0.92rem, 5.2cqw, 1.05rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: initial !important;
+  }
+}
+
+/* ============================================================
+   UX Wave 4 — Accessibility & Interaction Polish
+   ------------------------------------------------------------
+   Global focus ring (outside [data-module-canvas]):
+   - Cobre Sidebar, BottomNav, Sheet, Dialog, AppShell.
+   - Mantém estética premium (offset suave + cor primary).
+   - Não substitui o ring específico já definido no canvas.
+   ============================================================ */
+:where(
+  aside[data-shell="v2"],
+  nav[data-shell-bottom="v2"],
+  [role="dialog"],
+  [data-radix-popper-content-wrapper]
+) :where(
+  button, [role="button"], a[href], [role="tab"],
+  [role="menuitem"], [role="option"], [role="combobox"],
+  input, textarea, select
+):focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 1.5px hsl(var(--background)),
+    0 0 0 3px   hsl(var(--primary) / 0.55);
+  border-radius: inherit;
+  transition: box-shadow 120ms ease-out;
+}
+
+/* Skip-link já usa Tailwind (.sr-only/.focus:not-sr-only) — apenas
+   garantir que receba foco visível com o ring premium acima. */
+a[href="#main-content"]:focus-visible {
+  box-shadow:
+    0 0 0 2px hsl(var(--primary-foreground)),
+    0 0 0 4px hsl(var(--primary));
+}
+
+/* Motion safety reforçada — neutraliza qualquer transition/anim.
+   sobrante quando o usuário pede prefers-reduced-motion: reduce. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =====================================================================
+ * Wave 36 — Anti-AI-Slop Visual Enforcement
+ * ---------------------------------------------------------------------
+ * Subtrai clichês de "template SaaS gerado por IA": glassmorphism,
+ * glow azul em hover, gradientes 3-stops em cards, lift universal,
+ * pílulas coloridas em tabs ativas. Devolve peso institucional.
+ *
+ * Scoped, aditivo, reversível. Honra Sidebar/BottomNav/Dialog/PDF/Landing.
+ * ===================================================================== */
+
+/* 1. Cards de módulo: remove blur (glassmorphism) e gradiente decorativo */
+[data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"],
+[data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"],
+body :where(main, [role="main"]) :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  background: hsl(var(--card)) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow:
+    0 1px 0 hsl(var(--foreground) / 0.04),
+    0 1px 2px hsl(var(--foreground) / 0.05),
+    0 14px 28px -20px hsl(var(--foreground) / 0.18) !important;
+}
+
+/* 2. Hover de cards: remove glow primary, usa ink editorial */
+[data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]:hover,
+[data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]:hover,
+body :where(main, [role="main"]) :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):hover:not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  background: hsl(var(--card)) !important;
+  border-color: hsl(var(--border) / 0.95) !important;
+  box-shadow:
+    0 1px 0 hsl(var(--foreground) / 0.05),
+    0 2px 4px hsl(var(--foreground) / 0.06),
+    0 22px 40px -24px hsl(var(--foreground) / 0.24) !important;
+  transform: none !important;
+}
+
+/* 3. Card primitivo canônico (W27): mesmo tratamento — sem gradiente, sem blur */
+:where([data-module-canvas="v1"]) :where([data-ui="card"]) {
+  background: hsl(var(--card));
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* 4. Tabs ativas: substitui sombra colorida primary por underline editorial */
+[data-signature-shell="true"] [role="tablist"]:not([data-tabs-keep-pill]) [role="tab"][data-state="active"],
+[data-spatial-shell="true"] [role="tablist"]:not([data-tabs-keep-pill]) [role="tab"][data-state="active"],
+body :where(main, [role="main"]) :where([role="tablist"]:not([data-tabs-keep-pill]) [role="tab"][data-state="active"]):not(aside *):not(nav *):not([role="dialog"] *) {
+  background: transparent !important;
+  color: hsl(var(--foreground)) !important;
+  box-shadow: inset 0 -2px 0 hsl(var(--primary)) !important;
+  transform: none !important;
+  border-radius: 4px !important;
+}
+
+/* 5. Tablist container: remove pílula gradient — barra editorial sóbria */
+[data-signature-shell="true"] [role="tablist"]:not([data-tabs-keep-pill]),
+[data-spatial-shell="true"] [role="tablist"]:not([data-tabs-keep-pill]),
+body :where(main, [role="main"]) :where([role="tablist"]):not([data-tabs-keep-pill]):not(aside *):not(nav *):not([role="dialog"] *) {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: inset 0 -1px 0 hsl(var(--border) / 0.7) !important;
+  padding: 0 !important;
+  gap: 0.25rem !important;
+}
+
+/* 6. Anti-print/motion safety já tratado por waves globais — nada a fazer aqui */
+/* end Wave 36 */
+
+/* =====================================================================
+ * Wave 38 — Executive Surface System & Tonal Atmosphere
+ * ---------------------------------------------------------------------
+ * Elimina branco-absoluto-sobre-quase-branco. Profundidade passa a vir
+ * de TOM (3 camadas: ambiente/superfície/acento), não de sombra. Sem
+ * glow, sem glass, sem gradientes SaaS. Referência: Bloomberg / FT /
+ * Stripe Atlas — papel institucional, peso real.
+ *
+ * Escopo: ambiente operacional (canvas + cards em main). NÃO toca PDF
+ * off-screen, dialogs, popovers, landing, sidebar — tokens globais
+ * (--card / --background) permanecem inalterados.
+ * ===================================================================== */
+
+/* 1. Canvas: "papel marfim azulado" institucional com halo dissolvido */
+body:not(:has([data-pdf-content])) [data-module-canvas="v1"] {
+  background:
+    radial-gradient(1200px 600px at 50% -200px,
+      hsl(210 25% 96.5%) 0%,
+      transparent 60%),
+    hsl(210 20% 95.5%);
+}
+
+/* 2. Cards (canvas canônico + shells W13/W14 + cards genéricos em main):
+      off-white tonal cool em vez de branco absoluto */
+:where([data-module-canvas="v1"]) :where([data-ui="card"]),
+[data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"],
+[data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"],
+body :where(main, [role="main"]) :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  background: hsl(210 30% 99.2%) !important;
+  border-color: hsl(210 18% 89%) !important;
+}
+
+/* 3. Hover dos cards: tonal step up (não shadow step), mantém ink editorial da W36 */
+:where([data-module-canvas="v1"]) :where([data-ui="card"]):hover,
+[data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]:hover,
+[data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]:hover,
+body :where(main, [role="main"]) :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):hover:not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  background: hsl(210 30% 99.6%) !important;
+}
+
+/* 4. Print / dark mode safety: tonal layer não se aplica */
+@media print {
+  body:not(:has([data-pdf-content])) [data-module-canvas="v1"] {
+    background: #fff !important;
+  }
+  :where([data-module-canvas="v1"]) :where([data-ui="card"]) {
+    background: #fff !important;
+  }
+}
+.dark body [data-module-canvas="v1"],
+.dark :where([data-module-canvas="v1"]) :where([data-ui="card"]),
+.dark [data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"],
+.dark [data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"],
+.dark body :where(main, [role="main"]) :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *),
+.dark :where([data-module-canvas="v1"]) :where([data-ui="card"]):hover,
+.dark [data-signature-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]:hover,
+.dark [data-spatial-shell="true"] [class*="rounded-lg"][class*="border"][class*="bg-card"]:hover,
+.dark body :where(main, [role="main"]) :where([class*="rounded-lg"][class*="border"][class*="bg-card"]):hover:not([data-signature-shell] *):not([data-spatial-shell] *):not(aside *):not(nav *):not([role="dialog"] *):not([data-pdf-content] *):not([data-radix-popper-content-wrapper] *) {
+  background: hsl(var(--card)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+
+/* end Wave 38 */

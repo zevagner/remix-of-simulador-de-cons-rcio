@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.community_strip_pii() FROM PUBLIC, anon, authenticated;

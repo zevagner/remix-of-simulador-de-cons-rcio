@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`useInvestmentCalculations — parity (split por cenário) > Auto 80k / 80m — contemplado sorteio mês 12 — produz outputs determinísticos 1`] = `
+{
+  "adminFee": 14400,
+  "estimatedInstallment": 1458.6,
+  "paidUntilContemplation": 15281.28,
+  "path1": 105478.19,
+  "path2": 20000,
+  "path2Breakeven": 16,
+  "path3": 136746.5,
+  "path4": 159749.3,
+  "path5": 163055.62,
+  "path6": 110752.1,
+  "totalPaid": 116687.66,
+}
+`;
+
+exports[`useInvestmentCalculations — parity (split por cenário) > Imobiliário 300k / 200m — lance livre 30k mês 18 — produz outputs determinísticos 1`] = `
+{
+  "adminFee": 75000,
+  "estimatedInstallment": 2789.68,
+  "paidUntilContemplation": 37369.2,
+  "path1": 660209.23,
+  "path2": 78750,
+  "path2Breakeven": 39,
+  "path3": 1083869.93,
+  "path4": 1386308.79,
+  "path5": 2314341.6,
+  "path6": 676513.14,
+  "totalPaid": 587935.35,
+}
+`;
+
+exports[`useInvestmentCalculations — parity (split por cenário) > Imobiliário 450k / 200m — não contemplado — produz outputs determinísticos 1`] = `
+{
+  "adminFee": 126000,
+  "estimatedInstallment": 4624.74,
+  "paidUntilContemplation": 77434.06,
+  "path1": 966447.35,
+  "path2": 118125,
+  "path2Breakeven": 36,
+  "path3": 1572648.06,
+  "path4": 2267748.33,
+  "path5": 3240263.7,
+  "path6": 1014769.72,
+  "totalPaid": 924948.09,
+}
+`;

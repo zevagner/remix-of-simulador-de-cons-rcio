@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SimulatorContext — paridade pós-split (snapshot determinístico) > Auto 80k / 80m, lance livre 8k 1`] = `
+{
+  "effectiveClientCost": 96000,
+  "firstPayment": 1200,
+  "totalCost": 88000,
+}
+`;
+
+exports[`SimulatorContext — paridade pós-split (snapshot determinístico) > Imobiliário 450k / 200m, sem lance, sem seguro 1`] = `
+{
+  "effectiveClientCost": 580500,
+  "firstPayment": 2902.5,
+  "totalCost": 580500,
+}
+`;
+
+exports[`SimulatorContext — paridade pós-split (snapshot determinístico) > Pesados 300k / 100m, lance embutido 30% 1`] = `
+{
+  "effectiveClientCost": 282000,
+  "firstPayment": 3720,
+  "totalCost": 282000,
+}
+`;

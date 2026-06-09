@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Onda B3 — SimulationResult golden snapshot > cenário base — sem contemplação, sem reduzida 1`] = `
+{
+  "adminFee": 56000,
+  "contemplationType": "none",
+  "fullInstallment": 1401.714,
+  "installmentAfterContemplation": 1401.714,
+  "installmentBeforeContemplation": 1401.714,
+  "redilutedInstallmentValue": 0,
+  "reducedInstallmentValue": 0,
+  "reserveFund": 2000,
+  "totalCost": 280342.8,
+}
+`;

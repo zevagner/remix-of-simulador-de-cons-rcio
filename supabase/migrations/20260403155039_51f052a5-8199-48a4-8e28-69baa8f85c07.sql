@@ -1,0 +1,1 @@
+ALTER TABLE public.proposals ADD COLUMN prospect_trigger text NOT NULL DEFAULT 'nao_identificado';

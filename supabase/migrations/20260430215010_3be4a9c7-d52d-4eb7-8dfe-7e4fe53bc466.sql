@@ -1,0 +1,2 @@
+REVOKE EXECUTE ON FUNCTION public.get_admin_users_page(text, text, text, text, boolean, text, text, integer, integer) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.get_admin_users_page(text, text, text, text, boolean, text, text, integer, integer) TO authenticated;

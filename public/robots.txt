@@ -1,0 +1,29 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /proposta
+Disallow: /app
+Disallow: /admin
+
+User-agent: Bingbot
+Allow: /
+Disallow: /proposta
+Disallow: /app
+Disallow: /admin
+
+User-agent: Twitterbot
+Allow: /
+Disallow: /proposta
+Disallow: /app
+Disallow: /admin
+
+User-agent: facebookexternalhit
+Allow: /
+Disallow: /proposta
+Disallow: /app
+Disallow: /admin
+
+User-agent: *
+Allow: /
+Disallow: /proposta
+Disallow: /app
+Disallow: /admin

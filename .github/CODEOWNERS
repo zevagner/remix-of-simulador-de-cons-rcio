@@ -1,0 +1,96 @@
+# CODEOWNERS — Plataforma Simulador de Consórcio
+#
+# Última atualização: Onda 1 — Governança Corporativa (2026-06-01)
+#
+# Convenção:
+#   - Owners genéricos por enquanto (@platform, @finance, @security, etc.).
+#   - Substituir por handles reais (@nome ou @org/time) quando equipes formais existirem.
+#   - Toda PR exige review de pelo menos 1 owner da área tocada.
+#   - Áreas locked (ver .lovable/governance/production-lock-v2.4.md) exigem
+#     justificativa explícita contra os 8 critérios.
+
+# Default — qualquer arquivo não coberto cai aqui
+*                                       @platform
+
+# ──────────────────────────────────────────────────────────────
+# Finanças / Engine canônica (LOCKED)
+# ──────────────────────────────────────────────────────────────
+/src/core/finance/                      @finance @platform
+/src/config/businessRules.ts            @finance @platform
+/src/config/consortiumRates.ts          @finance @platform
+/src/test/                              @finance @platform
+
+# ──────────────────────────────────────────────────────────────
+# Autenticação, RLS, segurança
+# ──────────────────────────────────────────────────────────────
+/supabase/functions/_shared/auth.ts     @security @platform
+/supabase/functions/_shared/            @security @platform
+/scripts/_shared-edges/                 @security @platform
+/scripts/ci/auth-pattern-gate.mjs       @security
+/scripts/ci/anti-xss-gate.mjs           @security
+/src/hooks/useAuth.tsx                  @security @platform
+/src/services/auth.ts                   @security @platform
+
+# ──────────────────────────────────────────────────────────────
+# Storage / Buckets / Signed URLs
+# ──────────────────────────────────────────────────────────────
+/src/lib/uploadGuard.ts                 @security @platform
+/supabase/functions/share-proposal/     @security @platform
+/supabase/functions/data-export/        @security @platform
+/supabase/functions/account-purge/      @security @platform
+/supabase/functions/data-retention-purge/ @security @platform
+
+# ──────────────────────────────────────────────────────────────
+# Edge Functions (gerais)
+# ──────────────────────────────────────────────────────────────
+/supabase/functions/                    @platform
+/supabase/migrations/                   @security @platform
+
+# Edges admin — review obrigatório de admin owner
+/supabase/functions/admin-intelligence-prompts/  @admin @security
+/supabase/functions/admin-intelligence-report/   @admin @security
+/supabase/functions/create-user/                 @admin @security
+/supabase/functions/delete-user/                 @admin @security
+/supabase/functions/update-user-email/           @admin @security
+
+# Edges IA — narrativa, sem matemática
+/supabase/functions/sales-*/            @ai @platform
+/supabase/functions/*-storytelling/     @ai @platform
+/supabase/functions/module-copilot/     @ai @platform
+/supabase/functions/phase-action/       @ai @platform
+/supabase/functions/trigger-script/     @ai @platform
+/supabase/functions/generate-proposal/  @ai @platform
+
+# ──────────────────────────────────────────────────────────────
+# Governança, compliance, docs
+# ──────────────────────────────────────────────────────────────
+/.lovable/governance/                   @governance
+/.lovable/memory/governance/            @governance
+/.lovable/memory/security/              @security @governance
+/.lovable/audit/                        @security @governance
+/docs/compliance/                       @governance @security
+/docs/security/                         @security @governance
+/docs/operations/                       @platform @governance
+/docs/governance/                       @governance
+/docs/performance/                      @platform
+/docs/adaptive/                         @platform @ai
+
+# ──────────────────────────────────────────────────────────────
+# CI / build / config
+# ──────────────────────────────────────────────────────────────
+/.github/                               @platform @governance
+/scripts/ci/                            @security @platform
+/vite.config.ts                         @platform
+/tailwind.config.ts                     @platform
+/package.json                           @platform
+/supabase/config.toml                   @platform @security
+
+# ──────────────────────────────────────────────────────────────
+# Pendências (substituir owners genéricos quando times existirem)
+# ──────────────────────────────────────────────────────────────
+# @platform   → equipe de plataforma/engenharia
+# @finance    → engenharia financeira / engine
+# @security   → segurança e compliance técnico
+# @governance → governança/compliance institucional
+# @admin      → owners de superfície admin
+# @ai         → owners de IA narrativa / prompts
